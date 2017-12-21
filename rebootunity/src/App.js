@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-
+import OfficialList from './Official'
 
 class App extends Component {
   
@@ -26,27 +26,14 @@ class App extends Component {
       console.log(error);
     });
   }
-  
-  Official(official) {
-    return (<li>{official.name}</li>)
-  }
-  
-  OfficialList(officials) {
-    console.log(this);
-    console.log("Officials:",officials);
-    
-    const officialNode = officials.map((o) => {
-      return this.Official(o);
-    });
-    return (<ul>{officialNode}</ul>);
-  }
+
 
   render() {
     
     return (
       <div className="App">
         <input type="submit" onClick={() => this.getData()}/>
-        { this.OfficialList(this.state.data)}
+        <OfficialList officials={this.state.data}/>
       </div>
     );
   }
