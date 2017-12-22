@@ -5,10 +5,11 @@
   padding: 10px;
 }
 .official {
+  color: #444;
   display: flex;
-  border-bottom: 1px dashed #1A1A1A;
-  padding-bottom: 0.2em;
-  margin-bottom: 1em;
+  border-bottom: 1px dashed #9A9A9A;
+  padding-bottom: 0.6em;
+  margin-bottom: 1.6em;
   vertical-align: top;
 }
 .official-details {
@@ -25,12 +26,28 @@
   height: 40px;
   width: 40px;
   margin-right: 10px;
+  min-width: 40px;
 }
 .official-name {
-  font-size: 1.25em;
+  font-size: 0.9em;
 }
 .official-position {
   font-size: 0.9em;
   font-weight: bold;
   text-transform: uppercase;
+}
+.official-level {
+  display: none;
+}
+.official-party {
+  font-size: 0.8em;
+}
+.Republican-label {
+  color: red;
+}
+.Democratic-label {
+  color: blue;
+}
+.nonpartisan-label {
+  color: #333;
 }
