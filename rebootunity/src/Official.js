@@ -9,7 +9,9 @@ class Official extends React.Component {
     let classesParty = "official-party official-detail " + this.props.official.party + "-label";
     return (
       <li className={classesOfficial}>
-        <img className="official-photo" src={ghost} alt={t} />
+        <div className="official-photo">
+          <img className="official-image" src={this.props.official.photoUrl} alt={t} />
+        </div>
         <div className="official-details">
           <p className="official-name official-detail">{this.props.official.name}</p>
           <p className="official-position official-detail">{this.props.official.position}</p>

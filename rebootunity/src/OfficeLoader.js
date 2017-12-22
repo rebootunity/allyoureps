@@ -17,7 +17,8 @@ class OfficeLoader extends React.Component {
           position: office.name,
           level: office.levels || 'local',
           name: official.name,
-          party: official.party
+          party: official.party,
+          photoUrl: official.photoUrl
         })
       }
     }

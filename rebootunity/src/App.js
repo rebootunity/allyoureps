@@ -12,9 +12,11 @@ class App extends Component {
     };
   }
   
-  getData() {
+  getData(e,value) {
+    e.preventDefault();
     console.log("Getting data...");
-    const apiURL = 'https://www.googleapis.com/civicinfo/v2/representatives?key=AIzaSyA5FeFdyz3-4oeX1X7qleN_VR17nXR90HA&address=383+w+4th+ave+columbus+ohio+43201&includeOffices=true';
+    const apiURL = 'https://www.googleapis.com/civicinfo/v2/representatives?key=AIzaSyA5FeFdyz3-4oeX1X7qleN_VR17nXR90HA&includeOffices=true&address=' + value.toString();
+    const apiURL2 = 'https://www.googleapis.com/civicinfo/v2/representatives?key=AIzaSyA5FeFdyz3-4oeX1X7qleN_VR17nXR90HA&address=383+w+4th+ave+columbus+ohio+43201&includeOffices=true';
     const that = this;
     
     fetch(apiURL).then(function(response) { 
@@ -34,10 +36,18 @@ class App extends Component {
 
 
   render() {
-    console.log(this.state);
+    let input;
+    
     return (
       <div className="App">
-        <input type="submit" onClick={() => this.getData()}/>
+        <form className="address-form">
+          <input id="address" type="text" ref={node => {input = node}} placeholder="" required/>
+          <input type="submit" onClick={(e) => {
+            this.getData(e,input.value);
+            input.value = '';
+          }}/>
+          <label htmlFor="address" className="address-label">Enter your address</label>
+        </form>
         <OfficeLoader 
           officials={this.state.officials} 
           offices={this.state.offices} 
