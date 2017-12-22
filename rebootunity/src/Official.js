@@ -1,22 +1,23 @@
 import React from 'react';
-import Profile from './Profile';
+import ghost from './packman.png';
 
-class OfficialList extends React.Component {  
-
+class Official extends React.Component {  
+  
   render() {
-
+    let classes = "official " + this.props.official.level + " " + this.props.official.party;
+    let t = "Photo of " + this.props.official.name;
+    
     return (
-      <ul>
-        {this.props.officials.map((o) => 
-            <Profile 
-              key={o.name} 
-              name={o.name}
-              party={o.party}
-              photoUrl={o.photoUrl}
-            />
-        )}
-      </ul>
+      <li className={classes}>
+        <img className="official-photo" src={ghost} alt={t} />
+        <div className="official-details">
+          <p className="official-name official-detail">{this.props.official.name}</p>
+          <p className="official-position official-detail">{this.props.official.position}</p>
+          <p className="official-party official-detail">{this.props.official.party}</p>
+          <p className="official-level official-detail">{this.props.official.level}</p>
+        </div>
+      </li>
     );
   }
 }
-export default OfficialList;
+export default Official;

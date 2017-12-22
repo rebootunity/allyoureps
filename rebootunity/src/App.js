@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-import OfficialList from './Official'
+import OfficeLoader from './OfficeLoader'
 
 class App extends Component {
   
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      offices: [],
+      officials: []
     };
   }
   
@@ -20,20 +21,27 @@ class App extends Component {
     	// Convert to JSON
     	return response.json();
     }).then(function(data) {
-      console.log("Data begot");
-      that.setState({data: data.officials.map((o) => o)});
+      console.log("Data begot:",data);
+      that.setState({
+        offices: data.offices.map((o,i) => o),
+        officials: data.officials.map((o,i) => o)
+      });
     }).catch(function(error) {
       console.log(error);
+      return null;
     });
   }
 
 
   render() {
-    
+    console.log(this.state);
     return (
       <div className="App">
         <input type="submit" onClick={() => this.getData()}/>
-        <OfficialList officials={this.state.data}/>
+        <OfficeLoader 
+          officials={this.state.officials} 
+          offices={this.state.offices} 
+        />
       </div>
     );
   }

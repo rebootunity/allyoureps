@@ -1,0 +1,36 @@
+.officials {
+  display: flex;
+  flex-flow: column wrap;
+  list-style: none;
+  padding: 10px;
+}
+.official {
+  display: flex;
+  border-bottom: 1px dashed #1A1A1A;
+  padding-bottom: 0.2em;
+  margin-bottom: 1em;
+  vertical-align: top;
+}
+.official-details {
+  display: flex;
+  flex-flow: column;
+}
+.official-detail {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+.official-photo {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
+}
+.official-name {
+  font-size: 1.25em;
+}
+.official-position {
+  font-size: 0.9em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
