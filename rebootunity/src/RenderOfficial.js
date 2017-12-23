@@ -14,10 +14,14 @@ class RenderOfficial extends React.Component {
   }
   
   renderParty() {
-    let classes = "official-party official-detail " + this.props.official.party + "-label";
-    return (
-      <p className={classes}>{this.props.official.party}</p>
-    )
+    if (this.props.official.party == 'Unknown' || this.props.official.party == '') {
+      return <p className="no-party"></p>
+    } else {
+      let classes = "official-party official-detail " + this.props.official.party + "-label";
+      return (
+        <p className={classes}>{this.props.official.party}</p>
+      )
+    }
   }
   
   render() {

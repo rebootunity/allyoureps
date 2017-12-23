@@ -26,9 +26,7 @@ class AddressForm extends React.Component {
     // optional param: this will limit results to US addresses only
     const options = {
       types: ['address'],
-      componentRestrictions: {
-        country: 'US'
-      }
+      componentRestrictions: {'country': ['us', 'pr', 'vi', 'gu', 'mp']}
     }
 
  
