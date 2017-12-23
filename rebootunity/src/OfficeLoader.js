@@ -1,5 +1,5 @@
 import React from 'react';
-import Official from './Official';
+import RenderOfficial from './RenderOfficial';
 
 class OfficeLoader extends React.Component { 
   
@@ -25,8 +25,8 @@ class OfficeLoader extends React.Component {
     return mergedData;
   }
   
-  handleOfficials(officials) {
-    return officials.map((o,i) => <Official key={i.toString()} official={o}/>)
+  renderOfficials(officials) {
+    return officials.map((o,i) => <RenderOfficial key={i.toString()} official={o}/>)
   }
 
   render() {
@@ -34,7 +34,7 @@ class OfficeLoader extends React.Component {
     console.log(mergedData);
     return (
       <ul className="officials">
-        {this.handleOfficials(mergedData)}
+        {this.renderOfficials(mergedData)}
       </ul>
     );
   }
