@@ -25,7 +25,8 @@ class RenderOfficial extends React.Component {
   }
   
   render() {
-    let classesOfficial = "official " + this.props.official.level + " " + this.props.official.party;
+    let classesOfficial = "official " + this.props.official.party;
+    
     return (
       <li className={classesOfficial}>
         {this.renderImg()}

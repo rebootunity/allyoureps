@@ -15,9 +15,10 @@ class RenderOffice extends React.Component {
   }
   
   render() {
+    let classesOffice = "office " + this.props.office.levels;
 
     return (
-      <div className="office">
+      <div className={classesOffice}>
         <h3>{this.props.office.name}</h3>
         {this.renderOfficials()}
       </div>
