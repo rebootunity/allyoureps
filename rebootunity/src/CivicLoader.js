@@ -1,11 +1,12 @@
 import React from 'react';
 import RenderOfficial from './RenderOfficial';
 
-class OfficeLoader extends React.Component { 
+class CivicLoader extends React.Component { 
   
   mergeData() {
     let offices = this.props.offices;
     let officials = this.props.officials;
+    let divisions = this.props.divisions;
     let mergedData = [];
 
     for (var i = 0; i < offices.length; i++) {
@@ -38,4 +39,4 @@ class OfficeLoader extends React.Component {
     );
   }
 }
-export default OfficeLoader;
+export default CivicLoader;

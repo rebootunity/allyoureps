@@ -3,7 +3,7 @@ import './uswds.css';
 import './App.css';
 import AddressForm from './AddressForm';
 import RenderAddress from './RenderAddress';
-import OfficeLoader from './OfficeLoader';
+import CivicLoader from './CivicLoader';
 
 class App extends Component {
   
@@ -42,10 +42,11 @@ class App extends Component {
   render() {
     
     return (
-      <div className="App">
+      <div className="App sans-style serif-body">
         <AddressForm onFormSubmit={this.getData.bind(this)} />
         <RenderAddress addressFields={this.state.foundAddress} />
-        <OfficeLoader 
+        <CivicLoader 
+          divisions={this.state.divisions}
           officials={this.state.officials} 
           offices={this.state.offices} 
         />
