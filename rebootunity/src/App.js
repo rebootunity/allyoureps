@@ -27,7 +27,6 @@ class App extends Component {
     	// Convert to JSON
     	return response.json();
     }).then(function(data) {
-      debugger;
       that.setState({
         offices: data.offices.map((o) => o),
         officials: data.officials.map((o) => o),

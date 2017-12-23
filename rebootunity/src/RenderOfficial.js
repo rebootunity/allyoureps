@@ -2,20 +2,33 @@ import React from 'react';
 import ghost from './packman.png';
 
 class RenderOfficial extends React.Component {  
+
+  renderImg() {
+    let alt = "Photo of " + this.props.official.name;
+    let img = this.props.official.photoUrl || ghost;
+    return (
+      <div className="official-photo">
+        <img className="official-image" src={img} alt={alt} />
+      </div>
+    )
+  }
+  
+  renderParty() {
+    let classes = "official-party official-detail " + this.props.official.party + "-label";
+    return (
+      <p className={classes}>{this.props.official.party}</p>
+    )
+  }
   
   render() {
     let classesOfficial = "official " + this.props.official.level + " " + this.props.official.party;
-    let t = "Photo of " + this.props.official.name;
-    let classesParty = "official-party official-detail " + this.props.official.party + "-label";
     return (
       <li className={classesOfficial}>
-        <div className="official-photo">
-          <img className="official-image" src={this.props.official.photoUrl} alt={t} />
-        </div>
+        {this.renderImg()}
         <div className="official-details">
-          <p className="official-name official-detail usa-font-lead">{this.props.official.name}</p>
+          <p className="official-name official-detail">{this.props.official.name}</p>
           <p className="official-position official-detail">{this.props.official.position}</p>
-          <p className={classesParty}>{this.props.official.party}</p>
+          {this.renderParty()}
           <p className="official-level official-detail">{this.props.official.level}</p>
         </div>
       </li>
