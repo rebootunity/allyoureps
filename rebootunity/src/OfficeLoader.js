@@ -31,7 +31,6 @@ class OfficeLoader extends React.Component {
 
   render() {
     let mergedData = this.mergeData();
-    console.log(mergedData);
     return (
       <ul className="officials">
         {this.renderOfficials(mergedData)}

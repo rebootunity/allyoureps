@@ -73,13 +73,5 @@ input[type="submit"] {
 }
 .official-party {
   font-size: 0.8em;
-}
-.Republican-label {
-  color: red;
-}
-.Democratic-label {
-  color: blue;
-}
-.nonpartisan-label {
-  color: #333;
+  text-transform: uppercase;
 }

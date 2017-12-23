@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './uswds.css';
 import './App.css';
-import OfficeLoader from './OfficeLoader';
+import AddressForm from './AddressForm';
 import RenderAddress from './RenderAddress';
+import OfficeLoader from './OfficeLoader';
 
 class App extends Component {
   
@@ -12,27 +13,26 @@ class App extends Component {
       offices: [],
       officials: [],
       divisions: [],
-      address: []
+      foundAddress: []
     };
   }
   
-  getData(e,value) {
-    e.preventDefault();
+  getData(address) {
     console.log("Getting data...");
+
     const that = this;
-    const apiURL = 'https://www.googleapis.com/civicinfo/v2/representatives?key=AIzaSyA5FeFdyz3-4oeX1X7qleN_VR17nXR90HA&includeOffices=true&address=' + value.toString();
-    const testApiURL = 'https://www.googleapis.com/civicinfo/v2/representatives?key=AIzaSyA5FeFdyz3-4oeX1X7qleN_VR17nXR90HA&address=383+w+4th+ave+columbus+ohio+43201&includeOffices=true';
+    const apiURL = 'https://www.googleapis.com/civicinfo/v2/representatives?key=AIzaSyA5FeFdyz3-4oeX1X7qleN_VR17nXR90HA&includeOffices=true&address=' + address;
     
     fetch(apiURL).then(function(response) { 
     	// Convert to JSON
     	return response.json();
     }).then(function(data) {
-      // console.log("Data begot:",data);
+      debugger;
       that.setState({
         offices: data.offices.map((o) => o),
         officials: data.officials.map((o) => o),
         divisions: data.divisions,
-        address: data.normalizedInput
+        foundAddress: data.normalizedInput
       });
     }).catch(function(error) {
       console.log(error);
@@ -40,21 +40,12 @@ class App extends Component {
     });
   }
 
-
   render() {
-    let input;
     
     return (
       <div className="App">
-        <form className="address-form">
-          <input id="address" type="text" ref={node => {input = node}} placeholder="" required/>
-          <label htmlFor="address" className="address-label">Enter your address</label>
-          <input type="submit" onClick={(e) => {
-            this.getData(e,input.value);
-            input.value = '';
-          }}/>
-        </form>
-        <RenderAddress addressFields={this.state.address} />
+        <AddressForm onFormSubmit={this.getData.bind(this)} />
+        <RenderAddress addressFields={this.state.foundAddress} />
         <OfficeLoader 
           officials={this.state.officials} 
           offices={this.state.offices} 
