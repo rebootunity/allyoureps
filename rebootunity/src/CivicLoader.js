@@ -47,16 +47,16 @@ class CivicLoader extends React.Component {
     // the API structure doesn't directly match up divisions, offices,
     // and officials, so we create a new object structure that will be easier 
     // to handle in our components
-    let mergedData = [];
+    let mergedDataByDivision = [];
     // first match up officials with their offices
     let mergedOffices = this.mergeOfficesAndOfficials();
     // then match those offices with their divisions
     let mergedDivisions = this.mergeDivisionsAndOffices(mergedOffices);
     // convert final object to array
     for (var key in mergedDivisions) {
-      mergedData.push(mergedDivisions[key]);
+      mergedDataByDivision.push(mergedDivisions[key]);
     }
-    return mergedData;
+    return mergedDataByDivision;
   }
   
   renderDivisions(data) {
@@ -65,12 +65,37 @@ class CivicLoader extends React.Component {
     return data.map((d,i) => <RenderDivision key={i.toString()} division={d}/>);
   }
   
-  render() {
-    let mergedData = this.mergeData();
+  testData() {
+    let divisions = this.props.divisions;
+    let offices = this.props.offices;
+    let officials = this.props.officials;
     
+    for (var key in divisions) {
+      if (divisions.hasOwnProperty(key)) {
+        let indices = divisions[key].officeIndices;
+        for (var i = 0; i < indices.length; i++) {
+          let officeIndex = indices[i];
+          offices[officeIndex].division = divisions[key];
+        }
+      }
+    }
+    for (var key in offices) {
+      if (offices.hasOwnProperty(key)) {
+        let indices = offices[key].officialIndices;
+        for (var i = 0; i < indices.length; i++) {
+          let officialIndex = indices[i];
+          officials[officialIndex].division = offices[key];
+        }
+      }
+    }
+    return [officials];
+  }
+  
+  render() {
+    let mergedDataByDivision = this.mergeData();
     return (
       <section className="divisions">
-        {this.renderDivisions(mergedData)}
+        {this.renderDivisions(mergedDataByDivision)}
       </section>
     );
   }

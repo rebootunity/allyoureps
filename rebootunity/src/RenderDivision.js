@@ -19,7 +19,7 @@ class RenderDivision extends React.Component {
 
     return (
       <div className="division">
-        <h2>{this.props.division.name}</h2>
+        <h2 className="title division-name">{this.props.division.name}</h2>
         {this.renderDivision()}
       </div>
     );

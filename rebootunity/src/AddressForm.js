@@ -1,5 +1,5 @@
-import React from 'react'
-import PlacesAutocomplete from 'react-places-autocomplete'
+import React from 'react';
+import PlacesAutocomplete from 'react-places-autocomplete';
 
 class AddressForm extends React.Component {
   constructor(props) {
@@ -28,16 +28,25 @@ class AddressForm extends React.Component {
       types: ['address'],
       componentRestrictions: {'country': ['us', 'pr', 'vi', 'gu', 'mp']}
     }
+    // let the input box and submit button sit side-by-side
+    const styleProps = {
+      root: {
+        float: 'left',
+        width: '80%'
+      }
+    }
 
  
     return (
-      <form onSubmit={this.handleFormSubmit}>
+      <form onSubmit={this.handleFormSubmit} className="address-form">
         <PlacesAutocomplete 
           inputProps={inputProps}
           options={options}
+          styles={styleProps}
+          id='address-input'
         />
-        <label htmlFor="address" className="address-label">Enter your address</label>
-        <button type="submit">Submit</button>
+        <button className="address-button usa-button" type="submit">Submit</button>
+        <label htmlFor="address-input" className="address-label">Enter your address</label>
       </form>
     )
   }
