@@ -10,18 +10,19 @@ class AddressForm extends React.Component {
     this.state = { address: '' }
     this.onChange = (address) => this.setState({ address })
   }
- 
+
   handleFormSubmit = (event) => {
     event.preventDefault()
     // return address to parent component
     this.props.onFormSubmit(this.state.address)
   }
- 
+
   render() {
-    // inputProps param is required 
+    // inputProps param is required
     const inputProps = {
       value: this.state.address,
-      onChange: this.onChange
+      onChange: this.onChange,
+      id: "PlacesAutocomplete__input"
     }
     // optional param: this will limit results to US addresses only
     const options = {
@@ -36,20 +37,18 @@ class AddressForm extends React.Component {
       }
     }
 
- 
     return (
       <form onSubmit={this.handleFormSubmit} className="address-form">
-        <PlacesAutocomplete 
+        <label htmlFor="PlacesAutocomplete__input" className="address-label">Enter your address</label>
+        <PlacesAutocomplete
           inputProps={inputProps}
           options={options}
           styles={styleProps}
-          id='address-input'
         />
         <button className="address-button usa-button" type="submit">Submit</button>
-        <label htmlFor="address-input" className="address-label">Enter your address</label>
       </form>
     )
   }
 }
- 
+
 export default AddressForm

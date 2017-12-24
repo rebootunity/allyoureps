@@ -1,54 +1,176 @@
+/**
+*  TYPOGRAPHY
+*  =======================
+*  headline: 24/32
+*  lead: 22/30 light
+*  title: 20/28
+*  subtitle: 16/24
+*  body: 14/20
+*  body--alt, menu: 14/24
+*  button: 14/16 0.5spacing
+*  caption: 12/16
+**/
 body {
-  color: #5b616b;
-  font-family: "Merriweather", "Georgia", "Cambria", "Times New Roman", "Times", serif;
-  font-size: 15px;
-  line-height: 1.7em/26px;
+  color: rgba(33,33,33,0.87);
+  font-size: 14px;
+  font-weight: regular;
+  line-height: 20px;
 }
-h1,h2,h3,h4,h5,h6, .title, .subtitle, .lead {
-  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
-}
-.header-top-bar {
-  background: #e59393;
-  color: #fff;
-  font-size: 34px;
+.body--alt, .menu {
   font-weight: 700;
-  line-height: 1.3em;
-  padding: 1rem 4rem;
-  margin-left: 0;
-  margin-bottom: 1em;
-  text-align: center;
-  width: 100%;
+  line-height: 24px;
 }
-.logo-text {
-  font-style: normal;
+h1,h2,h3,h4,h5,h6, .headline, .title, .subtitle, .lead {
+  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  margin: 2px auto;
 }
-.logo-subtext {
-  font-size: 17px;
-  font-weight: 400;
-  line-height: 1.5em;
-  text-align: center;
+.headline {
+  font-size: 24px;
+  font-style: regular;
+  font-weight: 700;
+  line-height: 32px;
+}
+.lead {
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 30px;
+}
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+}
+.subhead, .subtitle {
+  font-size: 16px;
+  line-height: 24px;
+}
+.highlight--red {
+  color: rgba(235,52,77,0.87);
+}
+.highlight--blue {
+  color: rgba(0,127,170,0.87);
+}
+.darkbg {
+  color: #fff;
+}
+.button {
+  font-style: bold;
+  font-weight: 700;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
+}
+.caption {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+/**
+*  LAYOUT METRICS
+*  =======================
+*  .content padding: 16px
+*  .indent padding: 70px left
+**/
+.content {
+  padding: 0 16px;
+}
+.indent {
+  padding-left: 72px;
+}
+.content .indent {
+  padding-left: 56px;
+}
+@media (min-width: 640px;) {
+  .content {
+    padding: 0 24px;
+  }
+  .indent {
+    padding-left: 80px;
+  }
+}
+
+/* Fixed-Ratio Boxes */
+.aspect-ratio-box::before {
+  content: "";
+  width: 1px;
+  margin-left: -1px;
+  float: left;
+  height: 0;
+  padding-top: 100%; /* defaults 1:1 */
+}
+.aspect-ratio-box::after { /* to clear float */
+  content: "";
+  display: table;
+  clear: both;
+}
+/* Other ratios */
+.ratio2_1:before{
+	padding-top: 50%;
+}
+.ratio1_2:before{
+	padding-top: 200%;
+}
+.ratio4_3:before{
+	padding-top: 75%;
+}
+.ratio16_9:before{
+	padding-top: 56.25%;
+}
+
+/* Forms */
+label {
+  color: rgba(0,0,0,0.38);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  text-align: left;
 }
 .address-form {
-  margin: 3em 0.5em 4em;
+  margin: 3em auto 4em;
+  max-width: 640px;
   text-align: center;
 }
-input[type="text"] {
-  background: #f9f9f9;
-  border: 1px solid #0071bc;
-  font-size: 1.25em;
-  padding: 5px;
-  text-shadow: none;
+/* We're making our input box look like a search box */
+/* So that it stands out & is obvious */
+.address-form input[type='text'] {
+  background: #fafafa;
+  border: 1px solid #fff;
+  border-radius: 2px;
+  box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24);
+  color: rgba(0,0,0,0.38);
+  float: left;
+  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  max-width: none;
+  width: 100%;
 }
-input[type="submit"] {
-  background: #e9e9e9;
-  border: 2px solid #0071bc;
-  color: #777;
-  font-size: 1.25em;
-  font-weight: bold;
-  padding: 5px;
+.address-form button {
+  background: #046b99;
+  border: 1px solid #046b99;
+  border-radius: 2px;
+  box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24);
+  color: #fff;
+  display: inline-block;
+  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  margin: 2px 0;
+  padding: 12px;
   text-transform: uppercase;
+  width: 20%;
 }
+.address-form button:hover {
+  background: #00a6d2;
+  border: 1px solid #00a6d2;
+}
+#PlacesAutocomplete__autocomplete-container {
+  border: 1px solid #fff;
+  box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24);
+  text-align: left;
+}
+
 .address {
   background: #e1f3f8;
   border: 1px solid #9bdaf1;
@@ -62,25 +184,13 @@ input[type="submit"] {
   line-height: 1.3;
   margin-top: 1em;
 }
-.address-label {
-  font-size: 0.9em;
-}
 .address-detail {
   font-size: 1.6rem;
   line-height: 1;
   margin: 0;
   text-transform: uppercase;
 }
-.address-form button.address-button {
-  border-radius: 0;
-  display: inline-block;
-  font-size: 1.25em;
-  float: right;
-  line-height: 1.3;
-  margin: 0.2em 0;
-  padding: 10px;
-  width: 20%;
-}
+
 .officials {
   display: flex;
   flex-flow: column wrap;

@@ -5,9 +5,10 @@ import SiteHeader from './SiteHeader'
 import AddressForm from './AddressForm';
 import RenderAddress from './RenderAddress';
 import CivicLoader from './CivicLoader';
+import Styleguide from './Styleguide'
 
 class App extends Component {
-  
+
   constructor(props) {
     super(props);
     this.state = {
@@ -17,14 +18,14 @@ class App extends Component {
       foundAddress: []
     };
   }
-  
+
   getData(address) {
     console.log("Getting data...");
 
     const that = this;
     const apiURL = 'https://www.googleapis.com/civicinfo/v2/representatives?key=AIzaSyA5FeFdyz3-4oeX1X7qleN_VR17nXR90HA&includeOffices=true&address=' + address;
-    
-    fetch(apiURL).then(function(response) { 
+
+    fetch(apiURL).then(function(response) {
     	// Convert to JSON
     	return response.json();
     }).then(function(data) {
@@ -41,18 +42,19 @@ class App extends Component {
   }
 
   render() {
-    
+
     return (
       <div>
         <SiteHeader />
         <main id="main-content" className="App">
           <AddressForm onFormSubmit={this.getData.bind(this)} />
           <RenderAddress addressFields={this.state.foundAddress} />
-          <CivicLoader 
+          <CivicLoader
             divisions={this.state.divisions}
-            officials={this.state.officials} 
-            offices={this.state.offices} 
+            officials={this.state.officials}
+            offices={this.state.offices}
           />
+          <Styleguide visible="true" />
         </main>
       </div>
     );
