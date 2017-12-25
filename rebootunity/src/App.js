@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './uswds.css';
 import './App.css';
-import SiteHeader from './SiteHeader'
+import SiteHeader from './SiteHeader';
+import SiteHero from './SiteHero';
 import AddressForm from './AddressForm';
 import RenderAddress from './RenderAddress';
 import CivicLoader from './CivicLoader';
-import Styleguide from './Styleguide'
+import Styleguide from './Styleguide';
 
 class App extends Component {
 
@@ -45,8 +46,10 @@ class App extends Component {
 
     return (
       <div>
+        <a className="usa-skipnav" href="#main-content">Skip to main content</a>
         <SiteHeader />
         <main id="main-content" className="App">
+          <SiteHero />
           <AddressForm onFormSubmit={this.getData.bind(this)} />
           <RenderAddress addressFields={this.state.foundAddress} />
           <CivicLoader
@@ -54,7 +57,7 @@ class App extends Component {
             officials={this.state.officials}
             offices={this.state.offices}
           />
-          <Styleguide visible="true" />
+          <Styleguide visible="false" />
         </main>
       </div>
     );

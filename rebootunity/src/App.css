@@ -4,14 +4,20 @@
 *  headline: 24/32
 *  lead: 22/30 light
 *  title: 20/28
+*  subhead: 18/24
 *  subtitle: 16/24
 *  body: 14/20
 *  body--alt, menu: 14/24
 *  button: 14/16 0.5spacing
 *  caption: 12/16
 **/
+html {
+  box-sizing: border-box;
+}
 body {
+  background: #f5f5f5;
   color: rgba(33,33,33,0.87);
+  font-family: "Merriweather", "Georgia", "Cambria", "Times New Roman", "Times", serif;
   font-size: 14px;
   font-weight: regular;
   line-height: 20px;
@@ -22,7 +28,7 @@ body {
 }
 h1,h2,h3,h4,h5,h6, .headline, .title, .subtitle, .lead {
   font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
-  margin: 2px auto;
+  margin: 0 auto;
 }
 .headline {
   font-size: 24px;
@@ -40,9 +46,19 @@ h1,h2,h3,h4,h5,h6, .headline, .title, .subtitle, .lead {
   font-weight: 700;
   line-height: 28px;
 }
-.subhead, .subtitle {
-  font-size: 16px;
+.subhead {
+  font-size: 18px;
   line-height: 24px;
+  margin-top: 0;
+}
+.subtitle {
+  color: rgba(0,0,0,0.38);
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  line-height: 18px;
+  text-transform: uppercase;
+  margin-top: 0;
 }
 .highlight--red {
   color: rgba(235,52,77,0.87);
@@ -59,9 +75,12 @@ h1,h2,h3,h4,h5,h6, .headline, .title, .subtitle, .lead {
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
-.caption {
+caption {
   font-size: 12px;
   line-height: 16px;
+}
+.tinytext {
+  font-size: 9px;
 }
 
 /**
@@ -97,6 +116,9 @@ h1,h2,h3,h4,h5,h6, .headline, .title, .subtitle, .lead {
   height: 0;
   padding-top: 100%; /* defaults 1:1 */
 }
+.aspect-ratio-box {
+  overflow: hidden;
+}
 .aspect-ratio-box::after { /* to clear float */
   content: "";
   display: table;
@@ -116,23 +138,100 @@ h1,h2,h3,h4,h5,h6, .headline, .title, .subtitle, .lead {
 	padding-top: 56.25%;
 }
 
-/* Forms */
+/* Site Header */
+header {
+  background: #E31C3D;
+  color: #fff;
+  padding: 15px 0 12px;
+  margin: 0;
+  min-height: 40px;
+  text-align: center;
+}
+
+/* Site Hero */
+.site-hero {
+  position: relative;
+}
+.site-hero-image {
+  position: absolute;
+  opacity: 0.9;
+}
+.site-hero-display {
+  background: rgba(66,66,66,0.4);
+  height: 100%;
+  margin: 0;
+  padding-top: 20%;
+  position: absolute;
+  top: 0%;
+  text-shadow: 1px 1px 1px #000;
+  width: 100%;
+}
+.display-text {
+  font-family: ‘Merriweather’;
+  font-weight: 400;
+  font-size: 36px;
+  font-style: italic;
+  line-height: 1em;
+  margin: 0;
+}
+.site-hero-display .subtitle {
+  background: rgba(66,66,66,0.8);
+  box-shadow: 0 2px 1px 0 rgba(0,0,0,0.20);
+  display: inline-block;
+  padding: 6px;
+  margin-top: 24px;
+  text-shadow: 0 0px 2px rgba(0,0,0,0.3);
+}
+.site-hero-display .subtitle strong {
+  font-weight: 400;
+}
+.site-hero caption {
+  position: absolute;
+  bottom: 0;
+  opacity: 0.4;
+}
+
+/* Address Form */
 label {
   color: rgba(0,0,0,0.38);
+  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   font-size: 12px;
   font-weight: 700;
   line-height: 16px;
+  margin-top: 0;
   text-align: left;
 }
-.address-form {
-  margin: 3em auto 4em;
+.white-card {
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 1px 0 rgba(0,0,0,0.20);
+  padding-top: 24px;
+  padding-bottom: 24px; /* 24p default, 16p if actions */
+  margin: 0 16px 24px;
   max-width: 640px;
-  text-align: center;
+}
+.white-card .title {
+  font-size: 24px;
+  margin: 0 0 16px; /* bottom:24px default, 16p if subtitle */
+}
+.white-card .subtitle {
+  font-size: 14px;
+  padding: 0;
+  margin: 16px 0;
+}
+.white-card .title + .subtitle {
+  padding-top: 0;
+}
+.white-card .body-copy {
+  font-size: 14px;
+}
+.address-form-description {
+  text-align: left;
 }
 /* We're making our input box look like a search box */
 /* So that it stands out & is obvious */
 .address-form input[type='text'] {
-  background: #fafafa;
+  background: rgba(226,243,248,0.9);
   border: 1px solid #fff;
   border-radius: 2px;
   box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24);
@@ -166,29 +265,18 @@ label {
   border: 1px solid #00a6d2;
 }
 #PlacesAutocomplete__autocomplete-container {
-  border: 1px solid #fff;
+  border-radius: 2px;
   box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24);
   text-align: left;
 }
 
+/* Searched address */
 .address {
-  background: #e1f3f8;
-  border: 1px solid #9bdaf1;
-  margin: 0 0.5em;
-  padding-bottom: 1.5em;
-  text-align: center;
+
 }
-.address-title {
-  font-weight: 700;
-  font-size: 19px;
-  line-height: 1.3;
-  margin-top: 1em;
-}
+
 .address-detail {
-  font-size: 1.6rem;
-  line-height: 1;
   margin: 0;
-  text-transform: uppercase;
 }
 
 .officials {
