@@ -1,27 +1,27 @@
 import React from 'react';
 import RenderOfficial from './RenderOfficial';
 
-class RenderOffice extends React.Component { 
-  
+class RenderOffice extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
     };
   }
-  
+
   renderOfficials() {
-    let officials = this.props.office.officials;
+    let officials = this.props.officials;
     return officials.map((o,i) => <RenderOfficial key={i.toString()} official={o}/>);
   }
-  
-  render() {
-    let classesOffice = "office " + this.props.office.levels;
 
+  render() {
+    console.log("office");
+    const officials = this.props.officials;
     return (
-      <div className={classesOffice}>
+      <li className="office">
         <h3 className="subtitle office-name">{this.props.office.name}</h3>
         {this.renderOfficials()}
-      </div>
+      </li>
     );
   }
 }

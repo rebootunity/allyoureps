@@ -1,16 +1,34 @@
 import React from 'react';
-import RenderDivisions from './RenderDivisions';
+import RenderDivision from './RenderDivision';
 
 class CivicLoader extends React.Component {
 
-  render() {
+  getOffices(div) {
+    console.log(div);
+    const officeIndices = div.officeIndices;
+    const offices = this.props.offices;
+    if (officeIndices !== undefined) {
+      let array = officeIndices.map((o) => offices[o]);
+      return array;
+    } else {
+      return "undefined"
+    }
+    return;
+  }
 
+  render() {
+    console.log("dfdf");
+    const divisions = Object.values(this.props.divisions);
+console.log(divisions);
     return (
       <section className="divisions">
-        <RenderDivisions
-          divisions={this.props.divisions}
-          offices={this.props.offices}
-          officials={this.props.officials} />
+        {divisions.map((div,i) =>
+          <RenderDivision
+            key={i.toString()}
+            division={div}
+            offices={this.getOffices(div)}
+            officials={this.props.officials} />
+        )}
       </section>
     );
   }

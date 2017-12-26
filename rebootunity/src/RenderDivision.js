@@ -1,27 +1,36 @@
 import React from 'react';
 import RenderOffice from './RenderOffice'
 
-class RenderDivision extends React.Component { 
-  
+class RenderDivision extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
       division: {}
     };
   }
-  
-  renderDivision() {
-    let division = this.props.division;
-    return division.offices.map((o,i) => <RenderOffice key={i.toString()} office={o}/>);
-  }
-  
-  render() {
 
+  getOfficials(div) {
+    const officialIndices = div.officialIndices;
+    const officials = this.props.officials;
+    if (officialIndices !== undefined) {
+      let array = officialIndices.map((o) => officials[o]);
+      return array;
+    }
+  }
+  render() {
+    console.log("division");
+    console.log(this);
+    const offices = this.props.offices;
     return (
-      <div className="division">
-        <h2 className="title division-name">{this.props.division.name}</h2>
-        {this.renderDivision()}
-      </div>
+      <ul className="offices">
+        {offices.map((office,i) =>
+          <RenderOffice
+            key={i.toString()}
+            office={office}
+            officials={this.getOfficials(office)} />
+        )}
+      </ul>
     );
   }
 }
