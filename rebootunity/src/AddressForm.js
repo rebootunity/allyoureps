@@ -45,7 +45,7 @@ class AddressForm extends React.Component {
 
     return (
       <form onSubmit={this.handleFormSubmit} className="address-form content white-card">
-        <p class="address-form-description">Built with the <a href="https://developers.google.com/civic-information/" target="_blank" title="Google API website for developers">Google Civic Information API</a> and <a href="http://votinginfoproject.org/" target="_blank" title="Voting Information Project website">Voting Information Project</a> to find elected officials for any U.S. residential address at federal, state, <em>and <strong>local</strong></em> levels.</p>
+        <p className="address-form-description">Built with the <a href="https://developers.google.com/civic-information/" target="_blank" rel="noopener noreferrer" title="Google API website for developers">Google Civic Information API</a> and <a href="http://votinginfoproject.org/" target="_blank" rel="noopener noreferrer" title="Voting Information Project website">Voting Information Project</a> to find elected officials for any U.S. residential address at federal, state, <em>and <strong>local</strong></em> levels.</p>
         <label htmlFor="PlacesAutocomplete__input" className="address-label">Enter your address</label>
         <PlacesAutocomplete
           inputProps={inputProps}

@@ -75,7 +75,7 @@ h1,h2,h3,h4,h5,h6, .headline, .title, .subtitle, .lead {
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
-caption {
+.caption {
   font-size: 12px;
   line-height: 16px;
 }
@@ -185,7 +185,7 @@ header {
 .site-hero-display .subtitle strong {
   font-weight: 400;
 }
-.site-hero caption {
+.site-hero .caption {
   position: absolute;
   bottom: 0;
   opacity: 0.4;
@@ -278,6 +278,22 @@ label {
 .address-detail {
   margin: 0;
 }
+
+/* Divisions */
+.division {
+  background: #fff;
+  box-shadow: 0 2px 1px 0 rgba(0,0,0,0.20);
+  margin: 0 16px;
+  padding: 0;
+}
+.division .headline {
+  background: #E31C3D;
+  color: white;
+  font-size: 18px;
+  padding: 0 16px;
+}
+
+/* Officials */
 
 .officials {
   display: flex;

@@ -3,7 +3,7 @@ import React from 'react';
 class Styleguide extends React.Component {
   render() {
     let visible = this.props.visible;
-    if (visible == "true") {
+    if (visible === "true") {
       return (
         <div>
           <h1>Typography as divs</h1>
