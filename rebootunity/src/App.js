@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './uswds.css';
 import './App.css';
 import SiteHeader from './SiteHeader';
+import SiteFooter from './SiteFooter';
 import SiteHero from './SiteHero';
 import AddressForm from './AddressForm';
 import RenderAddress from './RenderAddress';
@@ -60,6 +61,7 @@ class App extends Component {
           />
           <Styleguide visible="false" />
         </main>
+        <SiteFooter />
       </div>
     );
   }
