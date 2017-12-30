@@ -20,7 +20,6 @@ class RenderDivision extends React.Component {
     // console.log("Rendering a division");
     const divisionID = this.props.division;
     const offices = this.props.offices;
-    let levelName = this.props.level;
 
     return (
         <li className={"division " + divisionID}>
