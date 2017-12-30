@@ -9,19 +9,23 @@ class RenderOffice extends React.Component {
     };
   }
 
-  renderOfficials() {
-    let officials = this.props.officials;
+  renderOfficials(officials) {
     return officials.map((o,i) => <RenderOfficial key={i.toString()} official={o}/>);
   }
 
   render() {
-    console.log("office");
-    const officials = this.props.officials;
+    const office = this.props.office;
+    // console.log("thisme");
+    // console.log(this);
     return (
-      <li className="office">
-        <h3 className="subtitle office-name">{this.props.office.name}</h3>
-        {this.renderOfficials()}
-      </li>
+      <ul className="offices ">
+        <li className={"office " + this.props.office.division.name}>
+            <h4 className="subtitle office-name">{this.props.office.name}</h4>
+            <ul className="officials">
+              {this.renderOfficials(office.officials)}
+            </ul>
+        </li>
+      </ul>
     );
   }
 }

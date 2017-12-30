@@ -7,28 +7,42 @@ class RenderDivisions extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      level: '',
     }
   }
 
-  renderDivisions() {
-    const divisions = this.props.divisions;
-
-    var values = [];
-    for (var i = 0; i < divisions.length; i++) {
-      let div = divisions[i];
-      values.push(<RenderDivision division={div} key={i.toString()} offices={this.props.offices} officials={this.props.officials} />);
-    }
-    return values.join('');
+  getDivision(office,divisions) {
+    let divID = office.divisionId;
+    office["division"] = divisions[divID];
+    return office;
   }
 
+  renderDivision(offices,level) {
+    let officesByDivision = {};
+    for (var i = 0; i < offices.length; i++) {
+      let office = offices[i];
+      let officeDivisionId = office.divisionId;
+      if (!officesByDivision.hasOwnProperty(officeDivisionId)) {
+        officesByDivision[officeDivisionId] = []
+      }
+      officesByDivision[officeDivisionId].push(office);
+    }
+    let hold = [];
+    for (var key in officesByDivision) {
+      let division = officesByDivision[key];
+      hold.push(<RenderDivision key={key.toString()} division={key.toString()} offices={Object.values(division)} level={level} />)
+    }
+
+    return hold;
+  }
   render() {
-console.log("divisions");
-console.log(this.props);
+    console.log("Rendering divisions");
+    const offices = this.props.offices;
+    const level = this.props.level;
+
     return (
-      <div className="results content">
-        {this.renderDivisions()}
-      </div>
+      <ul className={"level " + level}>
+        {this.renderDivision(offices,level)}
+      </ul>
     );
   }
 }

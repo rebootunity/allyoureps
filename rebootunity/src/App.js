@@ -7,6 +7,7 @@ import AddressForm from './AddressForm';
 import RenderAddress from './RenderAddress';
 import CivicLoader from './CivicLoader';
 import Styleguide from './Styleguide';
+import RenderResults from './RenderResults';
 
 class App extends Component {
 
@@ -52,7 +53,7 @@ class App extends Component {
           <SiteHero />
           <AddressForm onFormSubmit={this.getData.bind(this)} />
           <RenderAddress addressFields={this.state.foundAddress} />
-          <CivicLoader
+          <RenderResults
             divisions={this.state.divisions}
             officials={this.state.officials}
             offices={this.state.offices}

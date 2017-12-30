@@ -10,27 +10,24 @@ class RenderDivision extends React.Component {
     };
   }
 
-  getOfficials(div) {
-    const officialIndices = div.officialIndices;
-    const officials = this.props.officials;
-    if (officialIndices !== undefined) {
-      let array = officialIndices.map((o) => officials[o]);
-      return array;
-    }
+  renderOffices(offices) {
+    return offices.map((o,i) =>
+      <RenderOffice key={i.toString()} office={o} />
+    )
   }
+
   render() {
-    console.log("division");
-    console.log(this);
+    // console.log("Rendering a division");
+    const divisionID = this.props.division;
     const offices = this.props.offices;
+    let levelName = this.props.level;
+
     return (
-      <ul className="offices">
-        {offices.map((office,i) =>
-          <RenderOffice
-            key={i.toString()}
-            office={office}
-            officials={this.getOfficials(office)} />
-        )}
-      </ul>
+        <li className={"division " + divisionID}>
+          <h3 className="division-name headline">{this.props.offices[0].division.name}</h3>
+          {this.renderOffices(offices)}
+        </li>
+
     );
   }
 }

@@ -272,7 +272,7 @@ label {
 
 /* Searched address */
 .address {
-
+  margin-bottom: 0;
 }
 
 .address-detail {
@@ -280,18 +280,36 @@ label {
 }
 
 /* Divisions */
-.division {
+.level,
+.division,
+.offices {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.level {
   background: #fff;
   box-shadow: 0 2px 1px 0 rgba(0,0,0,0.20);
   margin: 0 16px;
-  padding: 0;
 }
 .division .headline {
   background: #E31C3D;
   color: white;
   font-size: 18px;
-  padding: 0 16px;
+  font-weight: 700;
+  padding: 16px;
+  text-transform: capitalize;
 }
+.division .office-name {
+  background: #f9dede;
+  font-size: 18px;
+  padding: 8px 16px;
+  text-transform: capitalize;
+  font-weight: 700;
+    line-height: 32px;
+    color: rgba(33,33,33,0.87);
+}
+
 
 /* Officials */
 
@@ -299,38 +317,44 @@ label {
   display: flex;
   flex-flow: column wrap;
   list-style: none;
-  padding: 10px;
+  padding: 0;
+  margin-bottom: 0;
 }
 .official {
+  display: block;
   color: #444;
-  display: flex;
-  padding: 15px;
+  margin: 0;
 }
 .official-details {
-  display: flex;
-  flex-flow: column;
+  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  display: inline-block;
+  vertical-align: top;
+  padding-top: 16px;
+  padding-bottom: 20px;
 }
 .official-detail {
-  display: inline-block;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.3;
   margin: 0;
   padding: 0;
 }
 .official-photo {
   border-radius: 50%;
   display: inline-block;
-  height: 75px;
-  width: 75px;
-  margin-right: 10px;
-  min-width: 75px;
+  height: 40px;
+  width: 40px;
+  min-width: 40px;
+  margin: 16px 0 0 16px;
   overflow: hidden;
 }
 .official-image {
   max-width: 100%;
 }
 .official-name {
-  font-weight: 700;
-  font-size: 19px;
-  line-height: 1.3em/25px;
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
 }
 .official-position {
 
@@ -339,5 +363,40 @@ label {
   display: none;
 }
 .official-party {
+  display: block;
+}
+.official-address {
+  background: #dce4ef;
+  display: block;
+}
 
+.official-address .city,
+.official-address .state,
+.official-address .zip {
+  display: inline;
+  padding: 0;
+  margin: 0;
+}
+.official-address .city:after{
+    content:', ';
+    display: inline;
+    white-space: pre;
+}
+.official-address .state:after{
+    content:' ';
+    display: inline;
+    white-space: pre;
+}
+.results {
+  display: flex;
+  flex-flow: column;
+}
+.country {
+    order: 1;
+}
+.local {
+    order: 3;
+}
+.administrativeArea1 {
+    order: 2;
 }

@@ -11,15 +11,12 @@ class CivicLoader extends React.Component {
       let array = officeIndices.map((o) => offices[o]);
       return array;
     } else {
-      return "undefined"
+      return []
     }
-    return;
   }
 
   render() {
-    console.log("dfdf");
     const divisions = Object.values(this.props.divisions);
-console.log(divisions);
     return (
       <section className="divisions">
         {divisions.map((div,i) =>
