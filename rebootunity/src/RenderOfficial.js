@@ -44,7 +44,7 @@ class RenderOfficial extends React.Component {
     let holder = [];
     if (address !== undefined && address !== '') {
       for (var key in address[0]) {
-        holder.push(<p className={(key + " official-detail")}>{address[0][key]}</p>)
+        holder.push(<p key={key} className={(key + " official-detail")}>{address[0][key]}</p>)
       }
     }
     return holder;
