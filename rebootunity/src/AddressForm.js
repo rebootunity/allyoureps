@@ -46,9 +46,10 @@ class AddressForm extends React.Component {
 
     return (
       <form onSubmit={this.handleFormSubmit} className="address-form content white-card">
-        <h2 className="title highlight--red">Find Every representative<br/>at <span className="underline-effect"><strong>every level</strong></span> of government
+        <h2 className="title highlight--red">Every representative<br/> <span className="underline-effect"><strong>every level</strong></span> of government
         </h2>
-        <p className="address-form-description">Built with the <a href="https://developers.google.com/civic-information/" target="_blank" rel="noopener noreferrer" title="Google API website for developers">Google Civic Information API</a> and <a href="http://votinginfoproject.org/" target="_blank" rel="noopener noreferrer" title="Voting Information Project website">Voting Information Project</a> to find elected officials for any U.S. residential address at federal, state, <em>and <strong>local</strong></em> levels.</p>
+        <p className="address-form-description">Built with the <a href="https://developers.google.com/civic-information/" target="_blank" rel="noopener noreferrer" title="Google API website for developers">Google Civic Information API</a> and <a href="http://votinginfoproject.org/" target="_blank" rel="noopener noreferrer" title="Voting Information Project website">Voting Information Project</a> to find elected officials for any U.S. residential address at federal, state, and <strong>local</strong> levels.</p>
+        <p className="address-form-description">Results can include phone number, office address, and social media channels. Data is drawn from Google&#8217;s API. More information can be found on the <a href="https://developers.google.com/civic-information/docs/ci_forum" target="_blank" rel="noopener noreferrer">support site.</a></p>
         <label htmlFor="PlacesAutocomplete__input" className="address-label">Enter your address</label>
         <PlacesAutocomplete
           inputProps={inputProps}

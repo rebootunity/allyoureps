@@ -157,8 +157,9 @@ h1,h2,h3,h4,h5,h6, .headline, .title, .subtitle, .lead {
   font-weight: 300;
   line-height: 24px;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   margin-top: 16px;
+  opacity: 0.84;
 }
 .logo-text {
   font-style: normal;
@@ -188,22 +189,14 @@ h1,h2,h3,h4,h5,h6, .headline, .title, .subtitle, .lead {
 }
 .display-text {
   font-family: "Merriweather Italic";
-  font-size: 20px;
+  font-size: 24px;
   line-height: 1.3em;
   margin: 0;
 }
-@media (min-width: 640px) {
-  .white-card {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .site-hero-display .display-text {
-    font-size: 36px;
-  }
-  .logo {
-    font-size: 42px;
-  }
+.site-hero-display .display-text {
+  opacity: 0.9;
 }
+
 .site-hero-display .subtitle {
   background: rgba(66,66,66,0.8);
   box-shadow: 0 2px 1px 0 rgba(0,0,0,0.20);
@@ -220,10 +213,10 @@ h1,h2,h3,h4,h5,h6, .headline, .title, .subtitle, .lead {
 .site-hero-display .subtitle strong {
   font-weight: 400;
 }
-.site-hero .caption {
-  position: absolute;
-  bottom: 0;
-  opacity: 0.4;
+.hero-caption {
+  opacity: 0.6;
+  margin-top: -22px;
+  margin-bottom: 24px;
 }
 
 /* Address Form */
@@ -320,6 +313,7 @@ label {
   margin: 0;
 }
 
+
 /* Divisions */
 .level,
 .division,
@@ -332,6 +326,8 @@ label {
   background: #fff;
   box-shadow: 0 2px 1px 0 rgba(0,0,0,0.20);
   margin: 0 16px;
+  max-width: 640px;
+  width: 100%;
 }
 .division .headline {
   background: #E31C3D;
@@ -440,4 +436,29 @@ label {
 }
 .administrativeArea1 {
     order: 2;
+}
+
+.footer {
+  margin-top: 250px;
+}
+
+@media (min-width: 640px) {
+  .white-card {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .level {
+    margin: 0 auto;
+  }
+  .site-hero-display .display-text {
+    font-size: 36px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .logo {
+    font-size: 42px;
+  }
+  .address-form {
+    margin-top: -80px;
+  }
 }
