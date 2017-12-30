@@ -195,6 +195,7 @@ h1,h2,h3,h4,h5,h6, .headline, .title, .subtitle, .lead {
 }
 .site-hero-display .display-text {
   opacity: 0.9;
+  padding: 0 16px;
 }
 
 .site-hero-display .subtitle {
@@ -217,6 +218,12 @@ h1,h2,h3,h4,h5,h6, .headline, .title, .subtitle, .lead {
   opacity: 0.6;
   margin-top: -22px;
   margin-bottom: 24px;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  max-width: 640px;
+  margin: -22px auto 24px auto;
+  text-align: right;
 }
 
 /* Address Form */
