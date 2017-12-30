@@ -33,7 +33,8 @@ class AddressForm extends React.Component {
     const styleProps = {
       root: {
         float: 'left',
-        width: '80%'
+        minWidth: '170px',
+        width: 'calc(100% - 84px)'
       },
       autocompleteContainer: {
         border: "1px solid #fff"
