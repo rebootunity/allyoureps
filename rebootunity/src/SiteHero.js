@@ -17,9 +17,7 @@ class SiteHero extends React.Component {
           <img srcSet={HeroSMMin} alt="American flag"/>
         </picture>
         <div className="site-hero-display content">
-          <p className="display-text darkbg">One source for <em>all</em> your elected officials</p>
-          <h1 className="subtitle darkbg">Find Every representative<br/>at <span className="underline-effect"><strong>every level</strong></span> of government
-          </h1>
+          <p className="display-text darkbg">One source to contact <em>all</em> of your elected officials</p>
         </div>
         <div className="caption darkbg tinytext">Photo by Lucas Sankey on Unsplash</div>
       </div>

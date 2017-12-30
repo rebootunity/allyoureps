@@ -153,10 +153,12 @@ h1,h2,h3,h4,h5,h6, .headline, .title, .subtitle, .lead {
 }
 .logo {
   text-shadow: 0px 1px 1px rgba(0,0,0,0.7);
-  font-size: 16px;
+  font-size: 56px;
+  font-weight: 300;
   line-height: 24px;
   text-transform: uppercase;
   letter-spacing: 1px;
+  margin-top: 16px;
 }
 .logo-text {
   font-style: normal;
@@ -164,9 +166,13 @@ h1,h2,h3,h4,h5,h6, .headline, .title, .subtitle, .lead {
 
 /* Site Hero */
 .site-hero {
+  background: #0071bc;
   position: relative;
+  z-index: -1
 }
 .site-hero-image {
+  mix-blend-mode: multiply;
+  filter: grayscale(70%);
   position: absolute;
   opacity: 0.9;
 }
@@ -174,19 +180,29 @@ h1,h2,h3,h4,h5,h6, .headline, .title, .subtitle, .lead {
   background: rgba(66,66,66,0.4);
   height: 100%;
   margin: 0;
-  padding-top: 20%;
+  padding-top: 30%;
   position: absolute;
   top: 0%;
   text-shadow: 1px 1px 1px #000;
   width: 100%;
 }
 .display-text {
-  font-family: ‘Merriweather’;
-  font-weight: 400;
-  font-size: 36px;
-  font-style: italic;
-  line-height: 1em;
+  font-family: "Merriweather Italic";
+  font-size: 20px;
+  line-height: 1.3em;
   margin: 0;
+}
+@media (min-width: 640px) {
+  .white-card {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .site-hero-display .display-text {
+    font-size: 36px;
+  }
+  .logo {
+    font-size: 42px;
+  }
 }
 .site-hero-display .subtitle {
   background: rgba(66,66,66,0.8);
@@ -195,6 +211,11 @@ h1,h2,h3,h4,h5,h6, .headline, .title, .subtitle, .lead {
   padding: 6px;
   margin-top: 24px;
   text-shadow: 0 0px 2px rgba(0,0,0,0.3);
+}
+@media (max-width: 440px) {
+  .site-hero-display .subtitle {
+    display: none;
+  }
 }
 .site-hero-display .subtitle strong {
   font-weight: 400;
@@ -227,6 +248,7 @@ label {
 .white-card .title {
   font-size: 24px;
   margin: 0 0 16px; /* bottom:24px default, 16p if subtitle */
+  text-transform: capitalize;
 }
 .white-card .subtitle {
   font-size: 14px;
@@ -244,6 +266,10 @@ label {
 }
 /* We're making our input box look like a search box */
 /* So that it stands out & is obvious */
+.address-form {
+  z-index: 100;
+  margin-top: -2%;
+}
 .address-form input[type='text'] {
   background: rgba(226,243,248,0.9);
   border: 1px solid #fff;
@@ -321,8 +347,8 @@ label {
   padding: 8px 16px;
   text-transform: capitalize;
   font-weight: 700;
-    line-height: 32px;
-    color: rgba(33,33,33,0.87);
+  min-height: 44px;
+  color: rgba(33,33,33,0.87);
 }
 
 
