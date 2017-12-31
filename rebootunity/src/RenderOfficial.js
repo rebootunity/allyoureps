@@ -2,6 +2,19 @@ import React from 'react';
 
 class RenderOfficial extends React.Component {
 
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      'aria-expanded': false,
+      'aria-hidden':true,
+      official: {},
+      controls: ''
+    }
+    // Bind the functions for use in the render
+    this.setInterest = this.setState.bind( this )
+  }
+
   // Data structure:
   // {
   //  name: ""
@@ -50,20 +63,34 @@ class RenderOfficial extends React.Component {
     return holder;
   }
 
+  handleClick() {
+
+    // open submenu
+    // close submenu
+
+    this.setState({
+      'aria-expanded':this.state['aria-expanded'] === true ? false : true,
+      'aria-hidden':this.state['aria-hidden'] === true ? false : true
+    })
+
+  }
+
   render() {
     let renderedImg = this.renderImg();
 
     return (
-      <li className={("official party " + this.props.official.party)}>
+      <li className="expandCollapse official party " data-party={this.props.official.party}>
         {renderedImg}
         <div className="official-details content">
           <p className="official-name official-detail">{this.props.official.name}</p>
           <p className="official-position official-detail">{this.props.official.position}</p>
           {this.renderParty()}
           <p className="official-level official-detail">{this.props.official.level}</p>
-
         </div>
-        <div className="official-address official-details content">{this.renderAddress()}</div>
+        <button className="expand-details usa-button-secondary usa-button-outline" aria-expanded={this.state['aria-expanded']}  onClick={this.handleClick.bind(this)}>
+          <i className="material-icons">more_horiz</i>
+        </button>
+        <div className="usa-accordion-content official-address official-details content" aria-hidden={this.state['aria-hidden']}>{this.renderAddress()}</div>
       </li>
     );
   }

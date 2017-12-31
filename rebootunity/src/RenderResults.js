@@ -32,7 +32,7 @@ class RenderResults extends React.Component {
   }
 
   render() {
-    console.log("Rendering results");
+    // console.log("Rendering results");
     const {offices,officials,divisions} = this.props;
     let officesByLevel = {local: []};
 
@@ -42,7 +42,7 @@ class RenderResults extends React.Component {
       let officeOfficials = this.getOfficials(officeDiv,officials);
       let matchedUpOffice = officeOfficials;
 
-      if (matchedUpOffice.levels != undefined && matchedUpOffice.levels.length > 0) {
+      if (matchedUpOffice.levels !== undefined && matchedUpOffice.levels.length > 0) {
         let levelname = matchedUpOffice.levels[0];
         if (!officesByLevel.hasOwnProperty(levelname)) {
           officesByLevel[levelname] = []

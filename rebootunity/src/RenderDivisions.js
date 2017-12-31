@@ -35,7 +35,7 @@ class RenderDivisions extends React.Component {
     return hold;
   }
   render() {
-    console.log("Rendering divisions");
+    // console.log("Rendering divisions");
     const offices = this.props.offices;
     const level = this.props.level;
 

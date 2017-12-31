@@ -1,7 +1,4 @@
 import React from 'react';
-import HeroLG from './img/hero-img-lg.jpeg';
-import HeroMD from './img/hero-img-md.jpeg';
-import HeroSM from './img/hero-img-sm.jpeg';
 import HeroLGMin from './img/hero-img-lg_min.jpeg';
 import HeroMDMin from './img/hero-img-md_min.jpeg';
 import HeroSMMin from './img/hero-img-sm_min.jpeg';

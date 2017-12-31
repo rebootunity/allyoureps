@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './uswds.css';
+import './fonts/iconfont/material-icons.css';
 import './App.css';
 import SiteHeader from './SiteHeader';
 import SiteFooter from './SiteFooter';
 import SiteHero from './SiteHero';
 import AddressForm from './AddressForm';
 import RenderAddress from './RenderAddress';
-import CivicLoader from './CivicLoader';
 import Styleguide from './Styleguide';
 import RenderResults from './RenderResults';
 
@@ -20,6 +20,34 @@ class App extends Component {
       divisions: [],
       foundAddress: []
     };
+  }
+
+  scrollToResults() {
+      let target = document.getElementById("js--scrollTarget");
+
+      function animate(target, style, unit, from, to, time, prop) {
+        if (!target) {
+            return;
+        }
+        var start = new Date().getTime(),
+            timer = setInterval(function () {
+                var step = Math.min(1, (new Date().getTime() - start) / time);
+                if (prop) {
+                    target[style] = (from + step * (to - from))+unit;
+                } else {
+                    target.style[style] = (from + step * (to - from))+unit;
+                }
+                if (step === 1) {
+                    clearInterval(timer);
+                }
+            }, 25);
+        if (prop) {
+              target[style] = from+unit;
+        } else {
+              target.style[style] = from+unit;
+        }
+      }
+      animate(target || document.documentElement, "scrollTop", "", 0, target.offsetTop, 2000, true);
   }
 
   getData(address) {
@@ -42,6 +70,8 @@ class App extends Component {
       console.log(error);
       return null;
     });
+
+    this.scrollToResults();
   }
 
   render() {

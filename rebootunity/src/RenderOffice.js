@@ -10,7 +10,7 @@ class RenderOffice extends React.Component {
   }
 
   renderOfficials(officials) {
-    return officials.map((o,i) => <RenderOfficial key={i.toString()} official={o}/>);
+    return officials.map((o,i) => <RenderOfficial key={i.toString()} official={o} />);
   }
 
   render() {
@@ -18,10 +18,10 @@ class RenderOffice extends React.Component {
     // console.log("thisme");
     // console.log(this);
     return (
-      <ul className="offices ">
-        <li className={"office " + this.props.office.division.name}>
+      <ul className="offices usa-accordion ">
+        <li className="office " data-office={this.props.office.name}>
             <h4 className="subtitle office-name">{this.props.office.name}</h4>
-            <ul className="officials">
+            <ul className="officials ">
               {this.renderOfficials(office.officials)}
             </ul>
         </li>

@@ -82,6 +82,15 @@ h1,h2,h3,h4,h5,h6, .headline, .title, .subtitle, .lead {
 .tinytext {
   font-size: 9px;
 }
+button {
+  margin: 0;
+  padding: 8px 16px;
+  line-height: 0.4;
+}
+
+[aria-hidden="true"] {
+  display: none;
+}
 
 /**
 *  LAYOUT METRICS
@@ -329,12 +338,18 @@ label {
   margin: 0;
   padding: 0;
 }
+.offices + .offices {
+  margin-top: 0;
+}
+.offices li.office {
+  background: white;
+  margin: 0;
+}
 .level {
   background: #fff;
   box-shadow: 0 2px 1px 0 rgba(0,0,0,0.20);
   margin: 0 16px;
   max-width: 640px;
-  width: 100%;
 }
 .division .headline {
   background: #E31C3D;
@@ -344,13 +359,15 @@ label {
   padding: 16px;
   text-transform: capitalize;
 }
+.country .division-name.headline:first-of-type {
+
+}
 .division .office-name {
   background: #f9dede;
-  font-size: 18px;
+  font-size: 16px;
   padding: 8px 16px;
   text-transform: capitalize;
   font-weight: 700;
-  min-height: 44px;
   color: rgba(33,33,33,0.87);
 }
 
@@ -412,6 +429,7 @@ label {
 .official-address {
   background: rgba(220, 228, 239, 0.3);
   display: block;
+  width: 100%;
 }
 
 .official-address .city,
@@ -445,6 +463,31 @@ label {
     order: 2;
 }
 
+.expandCollapse .panel {
+
+}
+.expand-details {
+  border-radius: 2px;
+  float: right;
+  margin: 24px 16px 16px;
+  padding: 0 8px;
+  max-width: 40px;
+}
+button.expand-details:active {
+  background: #3e94cf;
+  color: white;
+  border-color: white;
+}
+button.expand-details:hover {
+  background: white;
+}
+.expand-details + .panel {
+  /* display: none; */
+}
+[aria-hidden="true"] {
+  display: none;
+}
+
 .footer {
   margin-top: 250px;
 }
@@ -456,6 +499,7 @@ label {
   }
   .level {
     margin: 0 auto;
+    width: 100%;
   }
   .site-hero-display .display-text {
     font-size: 36px;
