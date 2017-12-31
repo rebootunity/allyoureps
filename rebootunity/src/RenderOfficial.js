@@ -7,9 +7,7 @@ class RenderOfficial extends React.Component {
     super(props);
     this.state = {
       'aria-expanded': false,
-      'aria-hidden':true,
-      official: {},
-      controls: ''
+      'aria-hidden':true
     }
     // Bind the functions for use in the render
     this.setInterest = this.setState.bind( this )
@@ -52,27 +50,60 @@ class RenderOfficial extends React.Component {
     }
   }
 
+
+  renderAddressDetails(address) {
+    const addressDetails = []
+    for (const [key, value] of Object.entries(address)) {
+      addressDetails.push(<div key={key} className={(key + " address-detail")}>{value}</div>)
+    }
+    return addressDetails
+  }
+
   renderAddress() {
-    let address = this.props.official.address;
+    let address = this.props.official.address !== undefined ? this.props.official.address[0] : undefined;
     let holder = [];
     if (address !== undefined && address !== '') {
-      for (var key in address[0]) {
-        holder.push(<p key={key} className={(key + " official-detail")}>{address[0][key]}</p>)
-      }
+      holder.push(
+        <div key="address" className="official-detail">
+            <div className="address-details">
+              {this.renderAddressDetails(address)}
+            </div>
+        </div>
+      )
     }
     return holder;
   }
 
+  renderUrl() {
+    let url = this.props.official.urls !== undefined ? this.props.official.urls[0] : undefined;
+    let holder = [];
+    if (url !== undefined && url !== '') {
+      holder.push(
+        <div key="url" className="official-detail weblink">
+          <a className="detail-link" href={url} title="Official website" target="_blank" rel="noopener noreferrer" >
+            <i className="material-icons">language</i>
+            <span>{url}</span>
+          </a>
+        </div>
+      )
+    }
+    return holder;
+  }
+
+  renderPhone() {
+    let phone = this.props.official.phones[0];
+    return (<div key="phone" className="official-detail phone">
+              <a href={("tel:" + phone)} className="detail-link" title="Call this official">
+                <i className="material-icons">phone</i>
+                <span>{phone}</span></a>
+            </div>);
+  }
+
   handleClick() {
-
-    // open submenu
-    // close submenu
-
     this.setState({
       'aria-expanded':this.state['aria-expanded'] === true ? false : true,
       'aria-hidden':this.state['aria-hidden'] === true ? false : true
     })
-
   }
 
   render() {
@@ -80,17 +111,26 @@ class RenderOfficial extends React.Component {
 
     return (
       <li className="expandCollapse official party " data-party={this.props.official.party}>
-        {renderedImg}
-        <div className="official-details content">
-          <p className="official-name official-detail">{this.props.official.name}</p>
-          <p className="official-position official-detail">{this.props.official.position}</p>
-          {this.renderParty()}
-          <p className="official-level official-detail">{this.props.official.level}</p>
+        <div className="displayed-details">
+          {renderedImg}
+          <div className="official-details content">
+            <p className="official-name official-detail">{this.props.official.name}</p>
+            <p className="official-position official-detail">{this.props.official.position}</p>
+            {this.renderParty()}
+            <p className="official-level official-detail">{this.props.official.level}</p>
+          </div>
+          <button className="expand-details" aria-expanded={this.state['aria-expanded']}  onClick={this.handleClick.bind(this)}>
+            <i className="material-icons">expand_more</i>
+          </button>
         </div>
-        <button className="expand-details usa-button-secondary usa-button-outline" aria-expanded={this.state['aria-expanded']}  onClick={this.handleClick.bind(this)}>
-          <i className="material-icons">more_horiz</i>
-        </button>
-        <div className="usa-accordion-content official-address official-details content" aria-hidden={this.state['aria-hidden']}>{this.renderAddress()}</div>
+        <div key="address-div" className="usa-accordion-content panel official-address" aria-hidden={this.state['aria-hidden']}>
+          {this.renderAddress()}
+        </div>
+        <div key="phone-div" className="usa-accordion-content panel official-phone" aria-hidden={this.state['aria-hidden']}>
+          {this.renderPhone()}
+          {this.renderUrl()}
+        </div>
+
       </li>
     );
   }
