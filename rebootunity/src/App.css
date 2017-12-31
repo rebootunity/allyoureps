@@ -485,6 +485,15 @@ label {
     display: inline;
     white-space: pre;
 }
+.official-channel {
+  display: inline-block;
+  font-size: 12px;
+  height: 36px;
+  line-height: 32px;
+  padding-right: 16px;
+  text-align: center;
+  width: 33%;
+}
 .official-detail.phone,
 .official-detail.weblink {
   display: inline-block;
