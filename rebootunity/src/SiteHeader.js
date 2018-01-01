@@ -5,7 +5,7 @@ class SiteHeader extends React.Component {
     return (
       <header className="header-top-bar">
         <h1 className="logo">
-          <em className="logo-text">RepList</em>
+          <em className="logo-text">All Your Reps</em>
         </h1>
       </header>
     )

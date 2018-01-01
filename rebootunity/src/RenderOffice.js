@@ -15,12 +15,20 @@ class RenderOffice extends React.Component {
 
   render() {
     const office = this.props.office;
-    // console.log("thisme");
-    // console.log(this);
+
+    let divisionName = office.division.name;
+    let officeTitle = office.name;
+    let subtitle = '';
+
+    if (officeTitle !== divisionName ||
+      officeTitle !== undefined) {
+      subtitle = <h4 className="subtitle office-name">{officeTitle}</h4>;
+    }
+
     return (
       <ul className="offices usa-accordion ">
-        <li className="office " data-office={this.props.office.name}>
-            <h4 className="subtitle office-name">{this.props.office.name}</h4>
+        <li className="office " data-office={officeTitle}>
+            {subtitle}
             <ul className="officials ">
               {this.renderOfficials(office.officials)}
             </ul>

@@ -80,7 +80,7 @@ class RenderOfficial extends React.Component {
     if (url !== undefined && url !== '') {
       holder.push(
         <div key="url" className="official-detail weblink">
-          <a className="detail-link subtitle" href={url} title="Official website" target="_blank" rel="noopener noreferrer" >
+          <a className="detail-link" href={url} title="Official website" target="_blank" rel="noopener noreferrer" >
             <i className="material-icons">language</i>
             <span>{url}</span>
           </a>
@@ -91,12 +91,15 @@ class RenderOfficial extends React.Component {
   }
 
   renderPhone() {
-    let phone = this.props.official.phones[0];
-    return (<div key="phone" className="official-detail phone">
-              <a href={("tel:" + phone)} className="detail-link" title="Call this official">
-                <i className="material-icons">phone</i>
-                <span>{phone}</span></a>
-            </div>);
+    let phone = this.props.official.phones !== undefined ? this.props.official.phones[0] : undefined;
+    if (phone !== undefined && phone !== '') {
+      return (<div key="phone" className="official-detail phone">
+            <a href={("tel:" + phone)} className="detail-link" title="Call this official">
+              <i className="material-icons">phone</i>
+                  <span>{phone}</span></a>
+          </div>);
+    }
+    return;
   }
 
   renderSocial() {
@@ -107,7 +110,7 @@ class RenderOfficial extends React.Component {
         let type = channel["type"],
             id = channel["id"]
         holder.push(
-          <a key={type} href={("http://" + type + ".com/" + id)} className={(type + " social-contact official-channel subtitle detail-link")} title="" target="_blank" rel="noopener noreferrer">
+          <a key={type} href={("http://" + type + ".com/" + id)} className={(type + " social-contact detail-link")} title="" target="_blank" rel="noopener noreferrer">
             {type}
           </a>)
       })
@@ -126,10 +129,10 @@ class RenderOfficial extends React.Component {
     let renderedImg = this.renderImg();
 
     return (
-      <li className="expandCollapse official party " data-party={this.props.official.party}>
+      <li className="content official">
         <div className="displayed-details">
           {renderedImg}
-          <div className="official-details content">
+          <div className="official-details">
             <p className="official-name official-detail">{this.props.official.name}</p>
             <p className="official-position official-detail">{this.props.official.position}</p>
             {this.renderParty()}

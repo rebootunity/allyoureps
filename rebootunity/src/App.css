@@ -18,14 +18,17 @@ html {
 body {
   background: #f5f5f5;
   color: rgba(33, 33, 33, 0.87);
-  font-family: "Merriweather Light", "Georgia", "Cambria", "Times New Roman", "Times", serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 20px; }
 
+.usa-accordion {
+  /* USWDS override */
+  color: rgba(33, 33, 33, 0.87); }
+
 h1, h2, h3, h4, h5, h6, .headline, .title, .subhead, .subtitle, .lead {
-  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding: 0; }
 
 .headline {
   font-size: 24px;
@@ -41,12 +44,12 @@ h1, h2, h3, h4, h5, h6, .headline, .title, .subhead, .subtitle, .lead {
 .title {
   font-size: 20px;
   font-weight: 700;
-  line-height: 28px; }
+  line-height: 26px;
+  text-transform: capitalize; }
 
 .subhead {
   font-size: 18px;
-  line-height: 24px;
-  margin-top: 0; }
+  line-height: 24px; }
 
 .subtitle {
   color: rgba(0, 0, 0, 0.38);
@@ -73,11 +76,8 @@ h1, h2, h3, h4, h5, h6, .headline, .title, .subhead, .subtitle, .lead {
   text-transform: uppercase; }
 
 .caption {
-  font-size: 12px;
+  font-size: 10px;
   line-height: 16px; }
-
-.tinytext {
-  font-size: 9px; }
 
 button {
   margin: 0;
@@ -213,28 +213,29 @@ button {
   font-weight: 400; }
 
 .hero-caption {
-  opacity: 0.6;
-  margin-top: -22px;
-  margin-bottom: 24px;
-  bottom: 0;
-  position: absolute;
-  width: 100%;
+  opacity: 0.46;
   max-width: 640px;
-  margin: -22px auto 24px auto;
-  text-align: right; }
+  margin: 0 auto;
+  text-align: right;
+  position: absolute;
+  bottom: 18px;
+  right: 16px;
+  width: 100%; }
 
 /* Address Form */
 label {
-  color: rgba(0, 0, 0, 0.38);
+  color: rgba(32, 84, 147, 0.84);
   font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   font-size: 12px;
   font-weight: 700;
+  letter-spacing: 0.5px;
   line-height: 16px;
-  margin-top: 0;
+  margin: 0;
   text-align: left; }
 
 .white-card {
   background: #fff;
+  border-top: 8px solid #E31C3D;
   border-radius: 2px;
   box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.2);
   padding-top: 24px;
@@ -244,10 +245,9 @@ label {
   max-width: 640px; }
 
 .white-card .title {
-  font-size: 24px;
-  margin: 0 0 16px;
-  /* bottom:24px default, 16p if subtitle */
-  text-transform: capitalize; }
+  color: rgba(235, 52, 77, 0.87);
+  margin-bottom: 16px;
+  /* bottom:24px default, 16p if subtitle */ }
 
 .white-card .subtitle {
   font-size: 14px;
@@ -257,17 +257,11 @@ label {
 .white-card .title + .subtitle {
   padding-top: 0; }
 
-.white-card .body-copy {
-  font-size: 14px; }
-
-.address-form-description {
-  text-align: left; }
-
 /* We're making our input box look like a search box */
 /* So that it stands out & is obvious */
 .address-form {
-  z-index: 100;
-  margin-top: -8px; }
+  margin-top: -16px;
+  z-index: 100; }
 
 .address-form input[type='text'] {
   background: rgba(226, 243, 248, 0.9);
@@ -324,6 +318,19 @@ label {
   margin: 0;
   padding: 0; }
 
+.level {
+  background: #fff;
+  box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.2);
+  margin: 0 16px;
+  max-width: 640px; }
+
+.division .subhead {
+  background: #007faa;
+  color: white;
+  letter-spacing: 0.5px;
+  padding: 8px 16px;
+  text-transform: capitalize; }
+
 .offices + .offices {
   margin-top: 0; }
 
@@ -331,27 +338,24 @@ label {
   background: white;
   margin: 0; }
 
-.level {
-  background: #fff;
-  box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.2);
-  margin: 0 16px;
-  max-width: 640px; }
-
-.division .headline {
-  background: #E31C3D;
-  color: white;
-  font-size: 18px;
-  font-weight: 700;
-  padding: 16px;
+.office-name {
+  background: #dce4ef;
+  color: rgba(33, 33, 33, 0.87);
+  padding: 10px 16px 8px;
   text-transform: capitalize; }
 
-.division .office-name {
-  background: #f9dede;
-  font-size: 16px;
-  padding: 8px 16px;
-  text-transform: capitalize;
-  font-weight: 700;
-  color: rgba(33, 33, 33, 0.87); }
+.results {
+  display: flex;
+  flex-flow: column; }
+
+.country {
+  order: 1; }
+
+.local {
+  order: 3; }
+
+.administrativeArea1 {
+  order: 2; }
 
 /* Officials */
 .officials {
@@ -363,45 +367,28 @@ label {
 
 .official {
   display: flex;
-  flex-flow: column wrap;
-  color: #444;
-  margin: 0; }
+  flex-flow: column wrap; }
 
 .official-details {
-  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  /* Accordion: .displayed-details visible, .panel hidden */
   display: inline-block;
-  vertical-align: top;
-  padding-top: 16px;
-  padding-bottom: 20px; }
-
-.official-detail {
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 1.3;
-  margin: 0;
   padding: 0;
+  margin-left: 16px;
   vertical-align: middle; }
 
-.official-detail i {
-  color: #aeb0b5;
-  display: inline-block;
-  float: left;
-  font-size: 32px;
-  margin: 0 8px 0 0;
-  width: 32px;
-  height: 32px; }
+.displayed-details, .panel {
+  padding: 16px 0;
+  overflow: auto;
+  position: relative;
+  vertical-align: middle; }
 
 /* Panel is hidden on load */
 .panel {
-  color: #5b616b;
-  line-height: 1.3;
-  margin-left: 72px;
-  margin-right: 16px;
-  padding: 0;
-  position: relative;
-  transition: line-height 0.5s ease-out; }
+  margin: 0 0 0 56px;
+  position: relative; }
 
 .panel:before {
+  /* separation line */
   border-top: 1px solid #d6d7d9;
   content: '';
   display: block;
@@ -410,26 +397,44 @@ label {
   top: 0;
   left: 0; }
 
-[aria-hidden="true"] {
-  line-height: 0;
-  opacity: 0;
-  visibility: hidden; }
+.official-detail {
+  line-height: 16px;
+  margin: 0;
+  padding: 0;
+  overflow: auto; }
 
-.official-social,
+.official-detail i {
+  color: #aeb0b5;
+  font-size: 32px;
+  margin: 0 16px 0 0;
+  width: 32px;
+  height: 32px;
+  vertical-align: middle; }
+
 .official-phone {
   display: flex;
+  flex-flow: column wrap; }
+
+.official-social {
+  /* rows of buttons */
+  display: flex;
   flex-flow: row wrap;
-  transition: background 0.5s ease-out-cubic, color 0.2s ease-out-in; }
+  padding: 0; }
+
+.official-phone {
+  padding: 0; }
 
 .detail-link {
-  font-size: 12px;
-  height: 72px;
-  line-height: 40px;
-  padding: 16px; }
+  /* button */
+  display: inline-block;
+  padding: 16px 16px 16px 0; }
 
 .detail-link:hover {
   background: #e4e2e0;
   color: rgba(33, 33, 33, 0.87); }
+
+.official-phone .detail-link {
+  width: 100%; }
 
 .official-photo {
   border-radius: 50%;
@@ -437,16 +442,15 @@ label {
   height: 40px;
   width: 40px;
   min-width: 40px;
-  margin: 16px 0 0 16px;
-  overflow: hidden; }
+  overflow: hidden;
+  vertical-align: middle; }
 
 .official-image {
+  display: block;
   max-width: 100%; }
 
 .official-name {
-  display: block;
-  font-size: 16px;
-  font-weight: 400; }
+  display: block; }
 
 .official-level {
   display: none; }
@@ -454,12 +458,7 @@ label {
 .official-party {
   display: block; }
 
-.official-address {
-  padding-top: 0; }
-
-.official-address:before {
-  display: none; }
-
+/* Panel contents */
 .official-address .city,
 .official-address .state,
 .official-address .zip {
@@ -477,51 +476,21 @@ label {
   display: inline;
   white-space: pre; }
 
-.official-channel,
-.phone, .weblink {
-  background: white;
-  text-align: center;
-  height: 72px; }
-
-.official-social {
-  padding: 0; }
-
-.official-detail.phone,
 .official-detail.weblink {
-  display: inline-block;
   overflow: hidden;
-  white-space: nowrap;
-  width: 49%; }
+  white-space: nowrap; }
 
-.weblink .subtitle {
-  font-size: 14px; }
-
-.results {
-  display: flex;
-  flex-flow: column; }
-
-.country {
-  order: 1; }
-
-.local {
-  order: 3; }
-
-.administrativeArea1 {
-  order: 2; }
-
-.displayed-details {
-  max-height: 70px; }
-
+/* Accordion trigger button */
 .expand-details,
 .expand-details[aria-expanded=false] {
   background-color: white;
   border-radius: 2px;
   box-shadow: 0 0 2px #aeb0b5, 0 0 2px #000, 0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24);
   color: #aeb0b5;
-  float: right;
-  margin: 24px 16px 16px;
   padding: 0 8px;
   max-width: 44px;
+  position: absolute;
+  right: 2px;
   transition: all 0.2s ease-in-out; }
 
 .expand-details:focus,
@@ -542,18 +511,14 @@ label {
   transform: rotate(180deg);
   transition: all 0.2s ease-in-out; }
 
-.usa-accordion > li .address-detail {
-  font-family: "Merriweather Light"; }
-
 .detail-link {
-  color: rgba(0, 127, 170, 0.87);
   text-decoration: none; }
 
 .detail-link:visited {
   color: #4c2c92; }
 
 .footer {
-  margin-top: 250px; }
+  margin-top: 24px; }
 
 @media (min-width: 640px) {
   .white-card {
@@ -567,6 +532,4 @@ label {
     max-width: 640px;
     margin: 0 auto; }
   .logo {
-    font-size: 42px; }
-  .address-form {
-    margin-top: -80px; } }
+    font-size: 42px; } }
