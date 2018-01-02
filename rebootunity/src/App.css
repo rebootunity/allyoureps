@@ -79,6 +79,9 @@ h1, h2, h3, h4, h5, h6, .headline, .title, .subhead, .subtitle, .lead {
   font-size: 10px;
   line-height: 16px; }
 
+.underline {
+  text-decoration: underline; }
+
 button {
   margin: 0;
   padding: 8px 16px;
