@@ -1,4 +1,5 @@
 import React from 'react';
+import SocialLinks from './SocialLinks';
 
 class RenderOfficial extends React.Component {
 
@@ -127,6 +128,7 @@ class RenderOfficial extends React.Component {
 
   render() {
     let renderedImg = this.renderImg();
+    let channels = this.props.official.channels;
 
     return (
       <li className="content official">
@@ -149,8 +151,8 @@ class RenderOfficial extends React.Component {
           {this.renderPhone()}
           {this.renderUrl()}
         </div>
-        <div key="social-div" className="usa-accordion-content panel official-social" aria-hidden={this.state['aria-hidden']}>
-          {this.renderSocial()}
+        <div key="social-div" className="usa-accordion-content panel" aria-hidden={this.state['aria-hidden']}>
+          <SocialLinks channels={channels} />
         </div>
       </li>
     );

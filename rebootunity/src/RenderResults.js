@@ -3,6 +3,36 @@ import RenderDivisions from './RenderDivisions';
 
 class RenderResults extends React.Component {
 
+  /**
+    * Data structure:
+    * {
+        props.divisions: {
+                          divisionId: {
+                                      name:
+                                      officeIndices: []
+                                      }
+                        },
+        props.offices: [{
+                          name:
+                          divisionId:
+                          division: props.divisions[divisionId]
+                          levels: []
+                          officialIndices: []
+                          officials: [loop over officialIndices, return officials]
+                        }],
+        props.officials: [{
+                            name:
+                            address:
+                            party:
+                            photoUrl:
+                            urls:
+                            phones:
+                            channels:
+                          }]
+      }
+    *
+  **/
+
   getDivision(office,divisions) {
     let divID = office.divisionId;
     office["division"] = divisions[divID];
@@ -32,7 +62,7 @@ class RenderResults extends React.Component {
   }
 
   render() {
-    // console.log("Rendering results");
+    console.log("RenderResults:",this.props);
     const {offices,officials,divisions} = this.props;
     let officesByLevel = {local: []};
 

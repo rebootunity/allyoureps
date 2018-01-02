@@ -4,7 +4,6 @@ import './fonts/iconfont/material-icons.css';
 import './App.css';
 import SiteHeader from './SiteHeader';
 import SiteFooter from './SiteFooter';
-import SiteHero from './SiteHero';
 import AddressForm from './AddressForm';
 import RenderAddress from './RenderAddress';
 import Styleguide from './Styleguide';
@@ -81,7 +80,6 @@ class App extends Component {
         <a className="usa-skipnav" href="#main-content">Skip to main content</a>
         <SiteHeader />
         <main id="main-content" className="App">
-          <SiteHero />
           <AddressForm onFormSubmit={this.getData.bind(this)} />
           <RenderAddress addressFields={this.state.foundAddress} />
           <RenderResults

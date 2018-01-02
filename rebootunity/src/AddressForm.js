@@ -47,6 +47,7 @@ class AddressForm extends React.Component {
     return (
       <form onSubmit={this.handleFormSubmit} className="address-form content white-card">
         <h2 className="title">Make your voice heard</h2>
+        <p><strong>All Your Reps</strong> takes the work out of finding your elected officials from local judges to State Congress</p>
         <label id="js--scrollTarget" htmlFor="PlacesAutocomplete__input" className="address-label">Enter your address</label>
         <PlacesAutocomplete
           inputProps={inputProps}
