@@ -1,17 +1,29 @@
 import React from 'react';
 import SocialLinks from './SocialLinks';
+import WebLinks from './WebLinks';
+import Phones from './Phones';
+import AddressFields from './AddressFields';
 
 class RenderOfficial extends React.Component {
-
 
   constructor(props) {
     super(props);
     this.state = {
-      'aria-expanded': false,
-      'aria-hidden':true
+      'aria-expanded':false,
+      'aria-hidden':true,
+      'hasImg':this.haveImg()
     }
     // Bind the functions for use in the render
     this.setInterest = this.setState.bind( this )
+  }
+
+  haveImg() {
+    if (this.props.official.photoUrl !== undefined ? true : false) {
+      if (this.props.official.photoUrl.length > 0 ? true : false) {
+        return true;
+      }
+    }
+    return false;
   }
 
   // Data structure:
@@ -22,7 +34,7 @@ class RenderOfficial extends React.Component {
   //  phones: [""]
   //  urls: [""]
   //  photoUrl: ""
-  //  channels: [{}]
+  //  channels: [{}] (social links)
   // }
 
   renderImg() {
@@ -36,7 +48,7 @@ class RenderOfficial extends React.Component {
         </div>
       )
     } else {
-      return <div className="official-no-photo"></div>;
+      return ''
     }
   }
 
@@ -75,49 +87,6 @@ class RenderOfficial extends React.Component {
     return holder;
   }
 
-  renderUrl() {
-    let url = this.props.official.urls !== undefined ? this.props.official.urls[0] : undefined;
-    let holder = [];
-    if (url !== undefined && url !== '') {
-      holder.push(
-        <div key="url" className="official-detail weblink">
-          <a className="detail-link" href={url} title="Official website" target="_blank" rel="noopener noreferrer" >
-            <i className="material-icons">language</i>
-            <span>{url}</span>
-          </a>
-        </div>
-      )
-    }
-    return holder;
-  }
-
-  renderPhone() {
-    let phone = this.props.official.phones !== undefined ? this.props.official.phones[0] : undefined;
-    if (phone !== undefined && phone !== '') {
-      return (<div key="phone" className="official-detail phone">
-            <a href={("tel:" + phone)} className="detail-link" title="Call this official">
-              <i className="material-icons">phone</i>
-                  <span>{phone}</span></a>
-          </div>);
-    }
-    return;
-  }
-
-  renderSocial() {
-    let channels = this.props.official.channels !== undefined ? this.props.official.channels : undefined;
-    let holder = [];
-    if (channels !== undefined && channels !== '') {
-      channels.forEach((channel) =>{
-        let type = channel["type"],
-            id = channel["id"]
-        holder.push(
-          <a key={type} href={("http://" + type + ".com/" + id)} className={(type + " social-contact detail-link")} title="" target="_blank" rel="noopener noreferrer">
-            {type}
-          </a>)
-      })
-    }
-    return holder
-  }
 
   handleClick() {
     this.setState({
@@ -128,10 +97,13 @@ class RenderOfficial extends React.Component {
 
   render() {
     let renderedImg = this.renderImg();
+    let hasImg = this.state.hasImg;
     let channels = this.props.official.channels;
+    let urls = this.props.urls;
+    let phones = this.props.phones;
 
     return (
-      <li className="content official">
+      <li className={("content official has-image-" + hasImg)}>
         <div className="displayed-details">
           {renderedImg}
           <div className="official-details">
@@ -147,11 +119,11 @@ class RenderOfficial extends React.Component {
         <div key="address-div" className="usa-accordion-content panel official-address" aria-hidden={this.state['aria-hidden']}>
           {this.renderAddress()}
         </div>
-        <div key="phone-div" className="usa-accordion-content panel official-phone" aria-hidden={this.state['aria-hidden']}>
-          {this.renderPhone()}
-          {this.renderUrl()}
+        <div key="phone-div" className="usa-accordion-content panel official-comms" aria-hidden={this.state['aria-hidden']}>
+          <Phones phones={phones} />
+          <WebLinks urls={urls} />
         </div>
-        <div key="social-div" className="usa-accordion-content panel" aria-hidden={this.state['aria-hidden']}>
+        <div key="social-div" className="usa-accordion-content social-links panel" aria-hidden={this.state['aria-hidden']}>
           <SocialLinks channels={channels} />
         </div>
       </li>

@@ -168,7 +168,7 @@ button {
   text-align: left; }
 
 .logo span {
-  display: break; }
+  display: block; }
 
 .logo-text {
   font-style: normal; }
@@ -227,8 +227,6 @@ button {
   text-shadow: 0 0px 2px rgba(0, 0, 0, 0.3); }
 
 @media (max-width: 440px) {
-  div.panel {
-    margin-left: 16px; }
   .site-hero-display .subtitle {
     display: none; } }
 
@@ -367,6 +365,9 @@ label {
   padding: 10px 16px 8px;
   text-transform: capitalize; }
 
+.no-fields + .results {
+  display: none; }
+
 .results {
   display: flex;
   flex-flow: column;
@@ -391,25 +392,33 @@ label {
 
 .official {
   display: flex;
-  flex-flow: column wrap; }
+  flex-flow: column nowrap;
+  overflow: hidden; }
 
 .official-details {
   /* Accordion: .displayed-details visible, .panel hidden */
   display: inline-block;
+  padding: 0;
+  margin-left: 0;
+  vertical-align: middle; }
+
+.has-image-true .official-details {
   padding: 0;
   margin-left: 16px;
   vertical-align: middle; }
 
 .displayed-details, .panel {
   padding: 16px 0;
-  overflow: auto;
   position: relative;
   vertical-align: middle; }
 
 /* Panel is hidden on load */
 .panel {
-  margin: 0 0 0 56px;
+  margin: 0;
   position: relative; }
+
+.has-image-true .panel {
+  margin-left: 56px; }
 
 .panel:before {
   /* separation line */
@@ -435,9 +444,9 @@ label {
   height: 32px;
   vertical-align: middle; }
 
-.official-phone {
+.official-comms {
   display: flex;
-  flex-flow: column wrap; }
+  flex-flow: column nowrap; }
 
 .official-social {
   /* rows of buttons */
@@ -445,7 +454,7 @@ label {
   flex-flow: row wrap;
   padding: 0; }
 
-.official-phone {
+.official-comms {
   padding: 0; }
 
 .detail-link {
@@ -472,7 +481,7 @@ label {
   background: #e4e2e0;
   color: rgba(33, 33, 33, 0.87); }
 
-.official-phone .detail-link {
+.official-comms .detail-link {
   width: 100%; }
 
 .official-photo {
