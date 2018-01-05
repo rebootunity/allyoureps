@@ -341,7 +341,9 @@ label {
 /* Divisions */
 .level,
 .division,
-.offices {
+.offices,
+.office {
+  // lists
   list-style: none;
   margin: 0;
   padding: 0;
@@ -393,16 +395,15 @@ label {
 /* Officials */
 
 .officials {
-  display: flex;
-  flex-flow: column wrap;
   list-style: none;
   padding: 0;
   margin-bottom: 0;
 }
 .official {
-  display: flex;
-  flex-flow: column nowrap;
   overflow: hidden
+}
+.official > li {
+  background: white; //overwrite uswds
 }
 .official-details {
   /* Accordion: .displayed-details visible, .panel hidden */

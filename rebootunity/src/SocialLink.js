@@ -10,13 +10,17 @@ class SocialLink extends React.Component {
 
   render() {
     let channel = this.props.channel !== undefined ? this.props.channel : '',
-        userId = this.props.userId !== undefined ? this.props.userId : ''
+        userId = this.props.userId !== undefined ? this.props.userId : '',
+        urlBlob = channel;
+    if (channel.toLowerCase() === 'googleplus') {
+      urlBlob = 'plus.google'
+    }
 
     return (
         <a
           key={this.state.key}
-          href={("http://" + channel + ".com/" + userId)}
-          className={(channel + " social-link detail-link")}
+          href={("http://" + urlBlob + ".com/" + userId)}
+          className={(channel + " usa-social_link usa-link-" + channel + " social-link detail-link")}
           title={channel}
           target="_blank"
           rel="noopener noreferrer">

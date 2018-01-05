@@ -2974,7 +2974,8 @@ li.usa-footer-primary-content:last-child {
   }
 }
 
-.usa-social_link, .usa-link-facebook, .usa-link-twitter, .usa-link-youtube, .usa-link-rss {
+.usa-social_link, .usa-link-facebook, .usa-link-twitter, .usa-link-youtube,
+.usa-link-plus.google, .usa-link-rss {
   margin: 2.5rem 1rem 1.5rem 0;
   background-position: center center;
   background-repeat: no-repeat;
