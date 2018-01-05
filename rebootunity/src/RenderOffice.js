@@ -26,14 +26,14 @@ class RenderOffice extends React.Component {
     }
 
     return (
-      <ul className="offices usa-accordion ">
-        <li className="office " data-office={officeTitle}>
+      <div className="offices">
+        <ul className="office " data-office={officeTitle}>
             {subtitle}
-            <ul className="officials ">
+            <li className="officials">
               {this.renderOfficials(office.officials)}
-            </ul>
-        </li>
-      </ul>
+            </li>
+        </ul>
+      </div>
     );
   }
 }

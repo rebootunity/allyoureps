@@ -1,8 +1,9 @@
 import React from 'react';
+import Party from './Party';
 import SocialLinks from './SocialLinks';
 import WebLinks from './WebLinks';
 import Phones from './Phones';
-import AddressFields from './AddressFields';
+import AddressField from './AddressField';
 
 class RenderOfficial extends React.Component {
 
@@ -52,42 +53,6 @@ class RenderOfficial extends React.Component {
     }
   }
 
-  renderParty() {
-    if (this.props.official.party === 'Unknown' || this.props.official.party === '') {
-      return <p className="no-party"></p>
-    } else {
-      let classes = "official-party official-detail " + this.props.official.party + "-label";
-      return (
-        <p className={classes}>{this.props.official.party}</p>
-      )
-    }
-  }
-
-
-  renderAddressDetails(address) {
-    const addressDetails = []
-    for (const [key, value] of Object.entries(address)) {
-      addressDetails.push(<div key={key} className={(key + " address-detail")}>{value}</div>)
-    }
-    return addressDetails
-  }
-
-  renderAddress() {
-    let address = this.props.official.address !== undefined ? this.props.official.address[0] : undefined;
-    let holder = [];
-    if (address !== undefined && address !== '') {
-      holder.push(
-        <div key="address" className="official-detail">
-            <div className="address-details">
-              {this.renderAddressDetails(address)}
-            </div>
-        </div>
-      )
-    }
-    return holder;
-  }
-
-
   handleClick() {
     this.setState({
       'aria-expanded':this.state['aria-expanded'] === true ? false : true,
@@ -99,34 +64,37 @@ class RenderOfficial extends React.Component {
     let renderedImg = this.renderImg();
     let hasImg = this.state.hasImg;
     let channels = this.props.official.channels;
-    let urls = this.props.urls;
-    let phones = this.props.phones;
+    let urls = this.props.official.urls;
+    let phones = this.props.official.phones;
+    let address = this.props.official.address !== undefined ? this.props.official.address[0] : '';
+    let party = this.props.official.party !== undefined ? this.props.official.party : '';
 
     return (
-      <li className={("content official has-image-" + hasImg)}>
-        <div className="displayed-details">
+      <ul className={(" usa-accordion content official has-image-" + hasImg)}>
+        <li className="displayed-details">
           {renderedImg}
           <div className="official-details">
             <p className="official-name official-detail">{this.props.official.name}</p>
             <p className="official-position official-detail">{this.props.official.position}</p>
-            {this.renderParty()}
+            <Party party={party}/>
             <p className="official-level official-detail">{this.props.official.level}</p>
           </div>
           <button className="expand-details" aria-expanded={this.state['aria-expanded']}  onClick={this.handleClick.bind(this)}>
             <i className="material-icons">expand_more</i>
           </button>
-        </div>
-        <div key="address-div" className="usa-accordion-content panel official-address" aria-hidden={this.state['aria-hidden']}>
-          {this.renderAddress()}
-        </div>
-        <div key="phone-div" className="usa-accordion-content panel official-comms" aria-hidden={this.state['aria-hidden']}>
+        </li>
+        <li key="address-div" className="usa-accordion-content panel official-address" aria-hidden={this.state['aria-hidden']}>
+          {(Object.entries(address)).map((field,i) =>
+                <AddressField key={(field[0])} type={field[0]} value={field[1]}/>)}
+        </li>
+        <li key="phone-div" className="usa-accordion-content panel official-comms" aria-hidden={this.state['aria-hidden']}>
           <Phones phones={phones} />
           <WebLinks urls={urls} />
-        </div>
-        <div key="social-div" className="usa-accordion-content social-links panel" aria-hidden={this.state['aria-hidden']}>
+        </li>
+        <li key="social-div" className="usa-accordion-content social-links panel" aria-hidden={this.state['aria-hidden']}>
           <SocialLinks channels={channels} />
-        </div>
-      </li>
+        </li>
+      </ul>
     );
   }
 }

@@ -14,10 +14,10 @@ class AddressFields extends React.Component {
     // an array for address, implying
     // more than one possible
     // For now we're just grabbing one
-    let fields = this.props.address !== undefined ? this.props.address[0] : '';
+    let fields = this.props.address !== undefined ? this.props.address : '';
+    console.log(fields);
     if (fields.length > 0) {
-      return (Object.entries(fields)).map((field,i) =>
-            <AddressField key={(fields[0] + this.state.key)} type={field[0]} value={field[1]}/>);
+      return
     } else {
       return null;
     }

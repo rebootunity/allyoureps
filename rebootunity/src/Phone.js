@@ -9,8 +9,7 @@ class Phone extends React.Component {
   }
 
   render() {
-    let phone = this.props.phone !== undefined ? this.props.phone : '',
-        userId = this.props.id !== undefined ? this.props.id : ''
+    let phone = this.props.phone !== undefined ? this.props.phone : '';
 
     return (
           <a key={this.state.key} href={("tel:" + phone)} className="detail-link official-phone" title="Call this official">
