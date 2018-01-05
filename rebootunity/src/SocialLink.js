@@ -10,7 +10,7 @@ class SocialLink extends React.Component {
 
   render() {
     let channel = this.props.channel !== undefined ? this.props.channel : '',
-        userId = this.props.id !== undefined ? this.props.id : ''
+        userId = this.props.userId !== undefined ? this.props.userId : ''
 
     return (
         <a
