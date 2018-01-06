@@ -166,13 +166,14 @@ a:hover {
   z-index: 10; }
 
 .logo {
+  font-family: 'Merriweather';
   font-size: 72px;
   font-weight: 300;
   line-height: 0.8;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin: 16px;
-  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.7);
+  text-shadow: 0px 2px 2px rgba(4, 107, 153, 0.6), 0px 1px 2px rgba(0, 0, 0, 0.7);
   opacity: 0.64;
   position: absolute;
   width: 100%;
@@ -255,6 +256,13 @@ a:hover {
   bottom: 18px;
   right: 16px;
   width: 100%; }
+
+.white-card--heading {
+  background: #E31C3D;
+  color: white;
+  margin: -24px -16px 24px -16px;
+  padding: 24px 0;
+  text-align: center; }
 
 /* Address Form */
 label {
@@ -445,7 +453,7 @@ label {
 
 .panel:before {
   /* separation line */
-  border-top: 1px solid #d6d7d9;
+  border-top: 1px dashed #e4e2e0;
   content: '';
   display: block;
   width: 100%;
@@ -503,7 +511,7 @@ label {
 
 .weblink,
 .official + .official {
-  border-top: 1px dashed #e4e2e0; }
+  border-top: 1px solid #e4e2e0; }
 
 .official-social .detail-link + .detail-link {
   border-left: 1px dashed #e4e2e0; }
@@ -621,6 +629,8 @@ label {
   .white-card {
     margin-left: auto;
     margin-right: auto; }
+  .white-card--heading {
+    margin: -24px -24px 24px -24px; }
   .level {
     margin: 0 auto;
     width: 100%; }

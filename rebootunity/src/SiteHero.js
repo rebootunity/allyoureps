@@ -14,7 +14,7 @@ class SiteHero extends React.Component {
           <img srcSet={HeroLG} alt="American flag"/>
         </picture>
         <div className="site-hero-display content">
-          <p className="site-hero-copy darkbg headline">All Your Reps</p>
+          <p className="site-hero-copy darkbg headline"></p>
         </div>
         <div className="content caption darkbg hero-caption">Photo by John Bakator on Unsplash</div>
       </div>

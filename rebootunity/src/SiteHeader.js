@@ -5,9 +5,9 @@ class SiteHeader extends React.Component {
   render() {
     return (
       <header className="header-top-bar">
-        <h1 className="logo">
+        <p className="logo">
           <em className="logo-text"><span>All </span><span>Your </span><span>Reps</span></em>
-        </h1>
+        </p>
         <SiteHero />
       </header>
     )
