@@ -46,7 +46,10 @@ class AddressForm extends React.Component {
 
     return (
       <form onSubmit={this.handleFormSubmit} className="address-form content white-card">
-        <h1 className="white-card--heading">All Your Reps</h1>
+        <h1 className="white-card--heading">            <i className="material-icons">star</i>
+          All Your Reps
+          <i className="material-icons">star</i>
+        </h1>
         <h2 className="title">Your elected officials from all levels of government</h2>
         <p><strong><span className="underline">All Your Reps</span></strong> takes the work out of finding your elected officials, so that you can focus on the issues.</p>
         <p>From judges to President, Congress to county commissioner, finding out who holds offices you get to elect can feel like stumbling in the dark.</p>
