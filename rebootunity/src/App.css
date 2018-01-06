@@ -26,6 +26,9 @@ body {
   /* USWDS override */
   color: rgba(33, 33, 33, 0.87); }
 
+.usa-accordion + .usa-accordion {
+  margin: 0; }
+
 .usa-accordion p {
   margin: 0; }
 
@@ -424,6 +427,9 @@ label {
   margin-left: 16px;
   vertical-align: middle; }
 
+.official.has-image-false {
+  min-height: 72px; }
+
 .displayed-details, .panel {
   padding: 16px 0;
   position: relative;
@@ -515,7 +521,7 @@ label {
   font-size: 30px;
   line-height: 1;
   margin-right: 16px;
-  vertical-align: top; }
+  vertical-align: middle; }
 
 .official-photo {
   border-radius: 50%;
@@ -547,6 +553,7 @@ label {
 
 /* Panel contents */
 .official-address > p {
+  color: #6E7481;
   font-family: 'Merriweather Light'; }
 
 .official-address .city,
