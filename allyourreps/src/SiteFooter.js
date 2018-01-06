@@ -16,6 +16,7 @@ class SiteFooter extends React.Component {
           <p>This is an open-source software project aimed at boosting political engagement among American citizens.</p>
           <p>Technology has lagged behind in serving one of the most important groups in America: the people of America.</p><p>This site is an effort to modernize politics and make engagement as uncomplicated as possible.</p>
         </div>
+        <div className="content caption">Built with React.JS by <a href="https://jannypie.github.io" target="_blank" rel="noopener noreferrer">Jan Dennison Humphries</a></div>
       </footer>
     )
   }
