@@ -19,12 +19,12 @@ class SocialLink extends React.Component {
     return (
         <a
           key={this.state.key}
-          href={("http://" + urlBlob + ".com/" + userId)}
-          className={(channel + " usa-social_link usa-link-" + channel + " social-link detail-link")}
+          href={("http://" + urlBlob + ".com/" + userId.toLowerCase())}
+          className={(channel + " usa-link-" + channel.toLowerCase() + " social-link detail-link")}
           title={channel}
           target="_blank"
           rel="noopener noreferrer">
-            {channel}
+            <span>{channel}</span>
         </a>
     )
   }
