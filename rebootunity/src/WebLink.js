@@ -19,7 +19,8 @@ class WebLink extends React.Component {
           title="Website"
           target="_blank"
           rel="noopener noreferrer">
-            {url}
+          <i className="material-icons">language</i>
+            <span>{url}</span>
         </a>
     )
   }

@@ -18,13 +18,16 @@ html {
 body {
   background: #f5f5f5;
   color: rgba(33, 33, 33, 0.87);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 400;
   line-height: 20px; }
 
 .usa-accordion {
   /* USWDS override */
   color: rgba(33, 33, 33, 0.87); }
+
+.usa-accordion p {
+  margin: 0; }
 
 h1, h2, h3, h4, h5, h6, .headline, .title, .subhead, .subtitle, .lead {
   margin: 0 auto;
@@ -52,7 +55,7 @@ h1, h2, h3, h4, h5, h6, .headline, .title, .subhead, .subtitle, .lead {
   line-height: 24px; }
 
 .subtitle {
-  color: rgba(0, 0, 0, 0.38);
+  color: #6e7481;
   font-weight: 400;
   font-size: 16px;
   letter-spacing: 0.5px;
@@ -86,6 +89,13 @@ button {
   margin: 0;
   padding: 8px 16px;
   line-height: 0.4; }
+
+a:focus,
+a:active,
+a:hover {
+  box-shadow: none;
+  outline: 2px dotted #aeb0b5;
+  outline-offset: -2px; }
 
 /**
 *  LAYOUT METRICS
@@ -329,6 +339,9 @@ label {
   margin-bottom: 0; }
 
 .address-detail {
+  font-family: "Merriweather Light";
+  font-size: 16px;
+  line-height: 1.5;
   margin: 0; }
 
 /* Divisions */
@@ -393,7 +406,11 @@ label {
   overflow: hidden; }
 
 .official > li {
-  background: white; }
+  background: white;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 0;
+  width: auto; }
 
 .official-details {
   /* Accordion: .displayed-details visible, .panel hidden */
@@ -458,17 +475,25 @@ label {
   padding: 0; }
 
 .detail-link {
-  /* button */
   display: inline-block;
   padding: 16px 16px 16px 0;
   text-align: left; }
 
-.official-social .detail-link {
-  /* button */
-  display: inline-block;
-  flex: 1;
-  text-align: center;
-  padding: 16px 8px; }
+.social-links {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 0; }
+
+.social-link.detail-link {
+  flex: 1 0 auto;
+  left: auto;
+  padding: 32px;
+  margin: 0; }
+
+.social-link .material-icons {
+  background-size: 100%;
+  box-sizing: content-box;
+  padding: 0 16px 0 0; }
 
 .weblink,
 .official + .official {
@@ -477,12 +502,20 @@ label {
 .official-social .detail-link + .detail-link {
   border-left: 1px dashed #e4e2e0; }
 
-.detail-link:hover {
-  background: #e4e2e0;
-  color: rgba(33, 33, 33, 0.87); }
-
 .official-comms .detail-link {
-  width: 100%; }
+  white-space: nowrap;
+  width: 100%;
+  text-transform: uppercase; }
+
+.official-comms .detail-link:visited {
+  color: #0071bc; }
+
+.official-comms .material-icons {
+  background-size: 100%;
+  font-size: 30px;
+  line-height: 1;
+  margin-right: 16px;
+  vertical-align: top; }
 
 .official-photo {
   border-radius: 50%;
@@ -498,18 +531,24 @@ label {
   max-width: 100%; }
 
 .official-name {
-  display: block; }
+  display: block;
+  font-family: "Source Sans Pro Heavy", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-size: 16px; }
 
 .official-level {
   display: none; }
 
 .official-party {
+  color: #6E7481;
   display: block; }
 
 .official-no-photo + .official-details {
   margin-left: 0; }
 
 /* Panel contents */
+.official-address > p {
+  font-family: 'Merriweather Light'; }
+
 .official-address .city,
 .official-address .state,
 .official-address .zip {
@@ -567,9 +606,6 @@ label {
 
 .detail-link {
   text-decoration: none; }
-
-.detail-link:visited {
-  color: #4c2c92; }
 
 .footer {
   margin-top: 24px; }

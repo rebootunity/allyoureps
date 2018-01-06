@@ -62,7 +62,6 @@ class RenderResults extends React.Component {
   }
 
   render() {
-    console.log("RenderResults:",this.props);
     const {offices,officials,divisions} = this.props;
     let officesByLevel = {local: []};
 
