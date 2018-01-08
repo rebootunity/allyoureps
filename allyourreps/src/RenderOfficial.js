@@ -92,7 +92,7 @@ class RenderOfficial extends React.Component {
           <WebLinks urls={urls} />
         </li>
         <li key="social-div" className="usa-accordion-content usa-social-links social-links panel" aria-hidden={this.state['aria-hidden']}>
-          <SocialLinks channels={channels} />
+          <SocialLinks channels={channels} official={this.props.official.name} />
         </li>
       </ul>
     );

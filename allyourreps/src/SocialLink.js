@@ -21,7 +21,7 @@ class SocialLink extends React.Component {
           key={this.state.key}
           href={("http://" + urlBlob + ".com/" + userId.toLowerCase())}
           className={(channel + " usa-link-" + channel.toLowerCase() + " social-link detail-link")}
-          title={channel}
+          title={(channel + ' social media channel for ' + this.props.official)}
           target="_blank"
           rel="noopener noreferrer">
             <span>{channel}</span>
