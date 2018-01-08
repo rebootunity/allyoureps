@@ -197,6 +197,9 @@ a:hover {
   filter: grayscale(40%);
   opacity: 0.9; }
 
+.site-hero-image img {
+  width: 100%; }
+
 .site-hero-display {
   background: rgba(66, 66, 66, 0.4);
   background: -moz-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.25) 52%, rgba(0, 0, 0, 0.65) 83%, rgba(0, 0, 0, 0.65) 91%, rgba(0, 0, 0, 0.64) 94%, rgba(0, 0, 0, 0.63) 100%);

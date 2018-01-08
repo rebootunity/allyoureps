@@ -1,7 +1,7 @@
 import React from 'react';
 import HeroLG from './img/hero-img-alt-lg.jpg';
-import HeroMD from './img/hero-img-alt-md.jpg';
-import HeroSM from './img/hero-img-alt-md.jpg';
+import HeroMD from './img/hero-img-alt-md.jpeg';
+import HeroSM from './img/hero-img-alt-sm.jpeg';
 
 class SiteHero extends React.Component {
   render() {
@@ -9,9 +9,9 @@ class SiteHero extends React.Component {
       <div className="site-hero aspect-ratio-box ratio16_9">
         <picture className="site-hero-image">
           <source media="(min-width: 1200px)" srcSet={HeroLG} />
-          <source media="(min-width: 640px)" srcSet={HeroLG} />
-          <source media="(min-width: 320px)" srcSet={HeroLG} />
-          <img srcSet={HeroLG} alt="American flag"/>
+          <source media="(min-width: 800px)" srcSet={HeroMD} />
+          <source media="(min-width: 320px)" srcSet={HeroSM} />
+          <img srcSet={HeroSM} alt="American flag"/>
         </picture>
         <div className="site-hero-display content">
           <p className="site-hero-copy darkbg headline"></p>
