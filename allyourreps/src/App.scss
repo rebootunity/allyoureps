@@ -40,7 +40,7 @@ h1,h2,h3,h4,h5,h6, .headline, .title, .subhead, .subtitle, .lead {
 }
 .headline {
   font-size: 24px;
-  font-style: regular;
+  font-style: normal;
   font-weight: 700;
   line-height: 32px;
 }
@@ -79,7 +79,7 @@ h1,h2,h3,h4,h5,h6, .headline, .title, .subhead, .subtitle, .lead {
   color: #fff;
 }
 .button {
-  font-style: bold;
+  font-style: oblique;
   font-weight: 700;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -392,7 +392,6 @@ label {
   text-transform: capitalize;
 }
 
-.divID
 .offices + .offices {
   margin-top: 0;
 }
@@ -417,12 +416,12 @@ label {
   padding-bottom: 24px;
   opacity: 1;
   visibility: visible;
-  transition: opacity 3s;
+  transition: all 3s;
 }
 .no-fields + .results {
   opacity: 0.3;
   visibility: hidden;
-  transition: opacity 3s;
+  transition: all 3s;
 }
 .country {
     order: 1;
@@ -633,8 +632,8 @@ label {
 .expand-details:hover {
   background-color: #aeb0b5;
   box-shadow:
-    -1px -1px -2px #rgba(17,46,81,0.9),
-    0 2px 2px #rgba(17,46,81,0.9),
+    -1px -1px -2px rgba(17,46,81,0.9),
+    0 2px 2px rgba(17,46,81,0.9),
     0 0 2px 0 rgba(0,0,0,0.12),
     0 2px 2px 0 rgba(0,0,0,0.24);
   color: white;
