@@ -369,16 +369,16 @@ label {
 .level {
   background: #fff;
   box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.2);
-  margin: 0 16px;
+  margin: 0 16px 32px;
   max-width: 640px; }
 
-.division .subhead {
-  background: #007faa;
-  color: white;
+.level .subhead {
+  background: #8ba6ca;
   letter-spacing: 0.5px;
   padding: 8px 16px;
   text-transform: capitalize; }
 
+.divID
 .offices + .offices {
   margin-top: 0; }
 
@@ -392,13 +392,22 @@ label {
   padding: 10px 16px 8px;
   text-transform: capitalize; }
 
-.no-fields + .results {
-  display: none; }
+.office-name .subtitle {
+  display: block;
+  font-size: 12px; }
 
 .results {
   display: flex;
   flex-flow: column;
-  padding-bottom: 24px; }
+  padding-bottom: 24px;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 3s; }
+
+.no-fields + .results {
+  opacity: 0.3;
+  visibility: hidden;
+  transition: opacity 3s; }
 
 .country {
   order: 1; }
@@ -524,7 +533,7 @@ label {
   text-transform: uppercase; }
 
 .official-comms .detail-link:visited {
-  color: #0071bc; }
+  color: #046b99; }
 
 .official-comms .material-icons {
   background-size: 100%;
@@ -641,7 +650,7 @@ label {
   .white-card--heading {
     margin: -24px -24px 24px -24px; }
   .level {
-    margin: 0 auto;
+    margin: 0 auto 32px;
     width: 100%; }
   .site-hero-display .display-text {
     font-size: 36px;

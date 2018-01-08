@@ -53,12 +53,12 @@ class RenderResults extends React.Component {
   }
 
   renderLevels(officesbylevel) {
-    let hold = [];
+    let holder = [];
     for (var key in officesbylevel) {
       let level = officesbylevel[key];
-      hold.push(<RenderDivisions key={key.toString()} level={key.toString()} offices={Object.values(level)} />)
+      holder.push(<RenderDivisions key={key.toString()} level={key.toString()} offices={Object.values(level)} />)
     }
-    return hold;
+    return holder;
   }
 
   render() {

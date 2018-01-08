@@ -9,7 +9,7 @@ class RenderAddress extends React.Component {
     }
     return (
       <div className="address content white-card">
-        <h2 className="title highlight--red">Elected Officials</h2>
+        <h2 className="white-card--heading">Elected Officials</h2>
         <p className="subtitle">Results for:</p>
         <p className="address-detail">{this.props.addressFields.line1}</p>
         <p className="address-detail">{this.props.addressFields.city}, {this.props.addressFields.state} {this.props.addressFields.zip}</p>

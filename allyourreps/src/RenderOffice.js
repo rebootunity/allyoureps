@@ -18,11 +18,54 @@ class RenderOffice extends React.Component {
 
     let divisionName = office.division.name;
     let officeTitle = office.name;
+    let role = office.roles !== undefined ? office.roles[0] : '';
     let subtitle = '';
+
+    if (role !== undefined && role !== '') {
+      switch (role) {
+        case 'headOfState':
+          role = 'Head of State: The chief public representative of a government.'
+          break;
+        case 'headOfGovernment':
+          role = 'Head of Government Body'
+          break;
+        case 'deputyHeadOfGovernment':
+          role = ''
+          break;
+        case 'governmentOfficer':
+          role = 'Government Officer'
+          break;
+        case 'executiveCouncil':
+          role = 'Executive Council'
+          break;
+        case 'legislatorUpperBody':
+          role = 'Legislative Upper Body'
+          break;
+        case 'legislatorLowerBody':
+          role = 'Legislative Lower Body'
+          break;
+        case 'highestCourtJudge':
+          role = 'Highest Court Judge'
+          break;
+        case 'judge':
+          role = 'Judge'
+          break;
+        case 'schoolBoard':
+          role = 'School Board'
+          break;
+        case 'specialPurposeOfficer':
+          role = 'Special Purpose Officer'
+          break;
+        default:
+          role = 'Elected Official'
+      }
+    }
 
     if (officeTitle !== divisionName ||
       officeTitle !== undefined) {
-      subtitle = <h4 className="subtitle office-name">{officeTitle}</h4>;
+      subtitle = <h4 className="subtitle office-name">
+                    {officeTitle}
+                </h4>;
     }
 
     return (

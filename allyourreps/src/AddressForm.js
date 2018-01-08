@@ -1,5 +1,8 @@
 import React from 'react';
 import PlacesAutocomplete from 'react-places-autocomplete';
+var Scroll = require('react-scroll');
+var Element = Scroll.Element;
+
 
 class AddressForm extends React.Component {
   constructor(props) {
@@ -54,6 +57,7 @@ class AddressForm extends React.Component {
         <p><strong><span className="underline">All Your Reps</span></strong> takes the work out of finding your elected officials, so that you can focus on the issues.</p>
         <p>From judges to President, Congress to county commissioner, finding out who holds offices you get to elect can feel like stumbling in the dark.</p>
         <p>Here you can search for your elected representatives at all levels, all in one spot. Bookmark it, print it, send it to your email -- whatever works best for you!</p>
+        <Element name="js--scrollTarget"></Element>
         <label id="js--scrollTarget" htmlFor="PlacesAutocomplete__input" className="address-label">Enter your address</label>
         <PlacesAutocomplete
           inputProps={inputProps}

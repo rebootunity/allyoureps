@@ -8,6 +8,9 @@ import AddressForm from './AddressForm';
 import RenderAddress from './RenderAddress';
 import Styleguide from './Styleguide';
 import RenderResults from './RenderResults';
+var Scroll = require('react-scroll');
+var scroller = Scroll.scroller;
+
 
 class App extends Component {
 
@@ -22,31 +25,12 @@ class App extends Component {
   }
 
   scrollToResults() {
-      let target = document.getElementById("js--scrollTarget");
-
-      function animate(target, style, unit, from, to, time, prop) {
-        if (!target) {
-            return;
-        }
-        var start = new Date().getTime(),
-            timer = setInterval(function () {
-                var step = Math.min(1, (new Date().getTime() - start) / time);
-                if (prop) {
-                    target[style] = (from + step * (to - from))+unit;
-                } else {
-                    target.style[style] = (from + step * (to - from))+unit;
-                }
-                if (step === 1) {
-                    clearInterval(timer);
-                }
-            }, 25);
-        if (prop) {
-              target[style] = from+unit;
-        } else {
-              target.style[style] = from+unit;
-        }
-      }
-      animate(target || document.documentElement, "scrollTop", "", 0, target.offsetTop, 2000, true);
+    // Somewhere else, even another file
+    scroller.scrollTo('js--scrollTarget', {
+      duration: 1000,
+      smooth: true,
+      offset: -10
+    })
   }
 
   getData(address) {
