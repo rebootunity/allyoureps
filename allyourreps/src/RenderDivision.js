@@ -28,8 +28,8 @@ class RenderDivision extends React.Component {
     }
 
     return (
-        <li className={"division " + divisionID}>
-          <h3 className="division-name subhead">{divisionName}</h3>
+        <li className={"white-card division " + divisionID}>
+          <h3 className="title division-name">{divisionName}</h3>
           {this.renderOffices(offices,level)}
         </li>
 

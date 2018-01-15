@@ -70,7 +70,7 @@ class RenderOfficial extends React.Component {
     let party = this.props.official.party !== undefined ? this.props.official.party : '';
 
     return (
-      <ul className={(" usa-accordion content official has-image-" + hasImg)}>
+      <ul className={(" usa-accordion content official has-image-" + hasImg)} aria-expanded={this.state['aria-expanded']}>
         <li className="displayed-details">
           {renderedImg}
           <div className="official-details">

@@ -14,6 +14,9 @@
 **/
 $primary-blue: #046b99;
 $primary-red: #e31c3d;
+$gray-dark: #494440;
+$bright-blue: #00a6d2;
+$lightest-blue: #e1f3f8;
 
 html {
   box-sizing: border-box;
@@ -27,7 +30,7 @@ body {
 }
 .usa-accordion {
   /* USWDS override */
-  color: rgba(33,33,33,0.87);
+  color: $gray-dark;
 }
 .usa-accordion + .usa-accordion {
   margin: 0;
@@ -62,7 +65,6 @@ h1,h2,h3,h4,h5,h6, .headline, .title, .subhead, .subtitle, .lead {
 
 }
 .subtitle {
-  color: rgb(110, 116, 129);
   font-weight: 400;
   font-size: 16px;
   letter-spacing: 0.5px;
@@ -243,7 +245,7 @@ label {
 /* Cards */
 .white-card {
   background: #fff;
-  border-top: 8px solid #E31C3D;
+  border-top: 8px solid $primary-red;
   border-radius: 2px;
   box-shadow: 0 2px 1px 0 rgba(0,0,0,0.20);
   padding-top: 24px;
@@ -251,18 +253,16 @@ label {
   margin: 0 16px 24px;
   max-width: 800px;
 }
-.white-card--heading {
-  background: #E31C3D;
-  color: white;
-  font-family: "Merriweather Light";
-  font-size: 32px;
-  margin: -24px -16px 24px -16px;
-  padding: 24px 0;
-  text-align: center;
-}
 .white-card .title {
   color: $primary-red;
   margin-bottom:16px; /* bottom:24px default, 16p if subtitle */
+}
+.results .white-card {
+  border-top: 8px solid $primary-blue;
+  padding: 24px;
+}
+.results .white-card .title {
+  color: $primary-blue;
 }
 .white-card .subtitle {
   font-size: 14px;
@@ -322,7 +322,7 @@ input:placeholder-shown {
   width: 100%;
 }
 .address-form button:hover {
-  background: #00a6d2;
+  background: $bright-blue;
 }
 #PlacesAutocomplete__autocomplete-container {
   border-radius: 2px;
@@ -358,35 +358,19 @@ input:placeholder-shown {
   padding: 0;
 }
 .level {
-  background: #fff;
   box-shadow: 0 2px 1px 0 rgba(0,0,0,0.20);
   margin: 0 16px 32px;
-  max-width: 640px;
 }
-.level .subhead {
-  background: #8ba6ca;
-  letter-spacing: 0.5px;
-  padding: 8px 16px;
-  text-transform: capitalize;
-}
+
 
 .offices + .offices {
   margin-top: 0;
 }
 .offices li.office {
-  background: white;
   margin: 0;
 }
 .office-name {
-  background: #dce4ef;
-  color: rgba(33,33,33,0.87);
-  padding: 10px 16px 8px;
   text-transform: capitalize;
-}
-.office-name .subtitle {
-  display: block;
-  font-size: 12px;
-
 }
 .results {
   display: flex;
@@ -419,10 +403,20 @@ input:placeholder-shown {
   margin-bottom: 0;
 }
 .official {
-  overflow: hidden
+  background-color: #f1f1f1;
+  overflow: hidden;
+  transition: background-color 0.5s;
+  li {
+    transition: background-color 0.5s;
+  }
+  &[aria-expanded="true"] {
+    background-color: white;
+    li {
+      background: white;
+    }
+  }
 }
 .official > li {
-  background: white; //overwrite uswds
   margin-top: 0;
   margin-bottom: 0;
   margin-right: 0;
@@ -495,9 +489,15 @@ input:placeholder-shown {
   padding: 0;
 }
 .detail-link {
+  background-color: white;
   display: inline-block;
   padding: 16px 16px 16px 0;
   text-align: left;
+  text-decoration: none;
+  transform: background-color 0.5s;
+  &:hover {
+    background-color: $lightest-blue;
+  }
 }
 .social-links {
   display: flex;
@@ -609,22 +609,13 @@ input:placeholder-shown {
 .expand-details:focus,
 .expand-details:hover {
   background-color: #aeb0b5;
-  box-shadow:
-    -1px -1px -2px rgba(17,46,81,0.9),
-    0 2px 2px rgba(17,46,81,0.9),
-    0 0 2px 0 rgba(0,0,0,0.12),
-    0 2px 2px 0 rgba(0,0,0,0.24);
+  box-shadow: none;
   color: white;
 }
 .expand-details:active,
 .expand-details[aria-expanded=true] {
-  background-color: #00a6d2;
-  // 112e51 rgba(17,46,81,0.9)
-  box-shadow:
-    -1px -1px -2px #rgba(17,46,81,0.9),
-    0 2px 2px #rgba(17,46,81,0.9),
-    0 0 2px 0 rgba(0,0,0,0.12),
-    0 2px 2px 0 rgba(0,0,0,0.24);
+  background-color: $bright-blue;
+  box-shadow: none;
   color: white;
 }
 .expand-details[aria-expanded=false] i {
@@ -634,9 +625,6 @@ input:placeholder-shown {
 .expand-details[aria-expanded=true] i {
   transform: rotate(180deg);
   transition: all 0.2s ease-in-out;
-}
-.detail-link {
-  text-decoration: none;
 }
 
 
@@ -652,18 +640,17 @@ input:placeholder-shown {
 @media (min-width: 640px) {
   .address-form {
     margin-top: -25%;
+    margin-bottom: 32px;
     max-width: 480px;
   }
   .white-card {
     margin-left: auto;
     margin-right: auto;
   }
-  .white-card--heading {
-    margin: -24px -24px 24px -24px;
-  }
   .level {
-    margin: 0 auto 32px;
+    margin: 32px auto;
     width: 100%;
+    max-width: 800px;
   }
   .logo {
     font-size: 56px;

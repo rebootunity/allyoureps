@@ -40,17 +40,16 @@ class AddressForm extends React.Component {
     const inputProps = {
       value: this.state.address,
       onChange: this.onChange,
-      onBlur: this.onBlur,
       id: "PlacesAutocomplete__input",
       placeholder: this.state.placeholder,
-      autoFocus: true
+      onFocus: this.handleFocus
     }
-    // optional param: this will limit results to US addresses only
+    // Maps optional param: this will limit results to US addresses only
     const options = {
       types: ['address'],
       componentRestrictions: {'country': ['us', 'pr', 'vi', 'gu', 'mp']}
     }
-    // let the input box and submit button sit side-by-side
+    // Styles: let the input box and submit button sit side-by-side
     const styleProps = {
       root: {
         float: 'left',
@@ -73,6 +72,7 @@ class AddressForm extends React.Component {
           inputProps={inputProps}
           options={options}
           styles={styleProps}
+          onSelect={this.handleSelect.bind(this)}
         />
         <button className="address-button usa-button" type="submit">Find em!</button>
         <small className="caption">Home address is only used to obtain results; it is not saved, sold, or shared in any way.</small>
