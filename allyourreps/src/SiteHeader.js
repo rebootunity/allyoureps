@@ -1,14 +1,15 @@
 import React from 'react';
-import SiteHero from './SiteHero';
 
 class SiteHeader extends React.Component {
   render() {
     return (
       <header className="header-top-bar">
-        <p className="logo">
-          <em className="logo-text"><span>All </span><span>Your </span><span>Reps</span></em>
-        </p>
-        <SiteHero />
+        <h1 className="logo">
+          <i className="material-icons">star</i>
+          <em>All Your Reps</em>
+          <i className="material-icons">star</i>
+        </h1>
+        <p className="site-hero-copy subtitle">Saving you the legwork <br/>So you can focus on the issues</p>
       </header>
     )
   }

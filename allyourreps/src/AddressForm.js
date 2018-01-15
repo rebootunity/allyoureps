@@ -10,22 +10,40 @@ class AddressForm extends React.Component {
     // address string can be populated to pre-load a location if desired
     // ex: address: 'San Francisco, CA'
     // We are leaving it blank
-    this.state = { address: '' }
+    this.state = { address: '',placeholder: '123 Sesame Street' }
     this.onChange = (address) => this.setState({ address })
   }
 
-  handleFormSubmit = (event) => {
-    event.preventDefault()
-    // return address to parent component
+  handleFormSubmit(event) {
+    // onFormSubmit is a parent function
+    // we need to pass the address up
+    // so the parent can make the API call
     this.props.onFormSubmit(this.state.address)
   }
 
+  handleSelect(address, placeId) {
+    this.setState({address})
+    this.props.onFormSubmit(address)
+  }
+
+  handleEnter(event) {
+    this.props.onFormSubmit(this.state.address)
+  }
+
+  handleFocus(e) {
+    e.target.placeholder = ""
+  }
+
   render() {
+
     // inputProps param is required
     const inputProps = {
       value: this.state.address,
       onChange: this.onChange,
-      id: "PlacesAutocomplete__input"
+      onBlur: this.onBlur,
+      id: "PlacesAutocomplete__input",
+      placeholder: this.state.placeholder,
+      autoFocus: true
     }
     // optional param: this will limit results to US addresses only
     const options = {
@@ -37,7 +55,7 @@ class AddressForm extends React.Component {
       root: {
         float: 'left',
         minWidth: '170px',
-        width: 'calc(100% - 84px)'
+        width: 'calc(100% - 92px)'
       },
       autocompleteContainer: {
         border: "1px solid #fff"
@@ -48,23 +66,16 @@ class AddressForm extends React.Component {
     }
 
     return (
-      <form onSubmit={this.handleFormSubmit} className="address-form content white-card">
-        <h1 className="white-card--heading">            <i className="material-icons">star</i>
-          All Your Reps
-          <i className="material-icons">star</i>
-        </h1>
-        <h2 className="title">Your elected officials from all levels of government</h2>
-        <p><strong><span className="underline">All Your Reps</span></strong> takes the work out of finding your elected officials, so that you can focus on the issues.</p>
-        <p>From judges to President, Congress to county commissioner, finding out who holds offices you get to elect can feel like stumbling in the dark.</p>
-        <p>Here you can search for your elected representatives at all levels, all in one spot. Bookmark it, print it, send it to your email -- whatever works best for you!</p>
+      <form onSubmit={this.handleFormSubmit.bind(this)} className="address-form content">
         <Element name="js--scrollTarget"></Element>
-        <label id="js--scrollTarget" htmlFor="PlacesAutocomplete__input" className="address-label">Enter your address</label>
+        <label id="js--scrollTarget" htmlFor="PlacesAutocomplete__input" className="address-label">Enter your home address</label>
         <PlacesAutocomplete
           inputProps={inputProps}
           options={options}
           styles={styleProps}
         />
-        <button className="address-button usa-button" type="submit">Submit</button>
+        <button className="address-button usa-button" type="submit">Find em!</button>
+        <small className="caption">Home address is only used to obtain results; it is not saved, sold, or shared in any way.</small>
       </form>
     )
   }
