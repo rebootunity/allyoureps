@@ -15,6 +15,7 @@ class AddressForm extends React.Component {
   }
 
   handleFormSubmit(event) {
+    event.preventDefault()
     // onFormSubmit is a parent function
     // we need to pass the address up
     // so the parent can make the API call
